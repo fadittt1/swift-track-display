@@ -1,13 +1,9 @@
 import { motion } from 'framer-motion';
-import { MapPin, ArrowRight, Play, Shield, Zap, Globe } from 'lucide-react';
+import { ArrowRight, Play } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import heroBg from '@/assets/hero-bg.jpg';
+import heroPattern from '@/assets/hero-pattern-nano.png';
 
 const floatingIcons = [
-  { Icon: Shield, delay: 0, position: 'top-20 left-[15%]' },
-  { Icon: Zap, delay: 0.2, position: 'top-40 right-[10%]' },
-  { Icon: Globe, delay: 0.4, position: 'bottom-32 left-[8%]' },
-  { Icon: MapPin, delay: 0.6, position: 'bottom-20 right-[15%]' },
 ];
 
 export const Hero = () => {
@@ -28,16 +24,16 @@ export const Hero = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0A1628]"
     >
       {/* Background Image */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${heroBg})` }}
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-60"
+        style={{ backgroundImage: `url(${heroPattern})` }}
       />
 
       {/* Overlay */}
-      <div className="absolute inset-0 hero-gradient hero-pattern" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0A1628]/80 via-[#0A1628]/40 to-[#0A1628]/90" />
 
       {/* Floating Icons */}
       {floatingIcons.map(({ Icon, delay, position }, index) => (
@@ -92,8 +88,8 @@ export const Hero = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-lg md:text-xl text-white/70 mb-10 max-w-2xl mx-auto leading-relaxed"
           >
-            Solutions de géolocalisation avancées pour la gestion de flotte, la sécurité
-            et l'optimisation de vos opérations. Technologie GPS de pointe, fiabilité garantie.
+            Solutions avancées pour la gestion de flotte, la sécurité
+            et l'optimisation de vos opérations. Technologie GPS de pointe.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -127,18 +123,7 @@ export const Hero = () => {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="mt-16 flex flex-wrap items-center justify-center gap-8 text-white/60"
           >
-            <div className="flex items-center gap-2">
-              <Shield className="w-5 h-5 text-accent" />
-              <span className="text-sm">Données Sécurisées</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Zap className="w-5 h-5 text-accent" />
-              <span className="text-sm">Temps Réel</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Globe className="w-5 h-5 text-accent" />
-              <span className="text-sm">Couverture Nationale</span>
-            </div>
+
           </motion.div>
         </div>
       </div>
