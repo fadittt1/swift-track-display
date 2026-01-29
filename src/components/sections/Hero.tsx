@@ -26,16 +26,16 @@ export const Hero = () => {
   };
 
   return (
-    <section 
-      id="hero" 
+    <section
+      id="hero"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
       {/* Background Image */}
-      <div 
+      <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${heroBg})` }}
       />
-      
+
       {/* Overlay */}
       <div className="absolute inset-0 hero-gradient hero-pattern" />
 
@@ -92,7 +92,7 @@ export const Hero = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-lg md:text-xl text-white/70 mb-10 max-w-2xl mx-auto leading-relaxed"
           >
-            Solutions de géolocalisation avancées pour la gestion de flotte, la sécurité 
+            Solutions de géolocalisation avancées pour la gestion de flotte, la sécurité
             et l'optimisation de vos opérations. Technologie GPS de pointe, fiabilité garantie.
           </motion.p>
 
@@ -103,14 +103,14 @@ export const Hero = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
-            <Button 
+            <Button
               onClick={scrollToContact}
               className="btn-accent text-lg px-8 py-6 group"
             >
               Demander une Démo
               <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
             </Button>
-            <Button 
+            <Button
               onClick={scrollToServices}
               variant="ghost"
               className="btn-outline-light text-lg px-8 py-6 group"
