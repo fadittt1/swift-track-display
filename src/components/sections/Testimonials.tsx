@@ -10,7 +10,7 @@ const testimonials = [
     name: 'Mohamed Ben Ali',
     role: 'Directeur Logistique',
     company: 'TransTunisie SARL',
-    content: 'Depuis que nous utilisons GPSTrack, notre efficacité opérationnelle a augmenté de 35%. Le suivi en temps réel et les rapports détaillés nous permettent de prendre des décisions éclairées.',
+    content: 'Depuis que nous utilisons VIEW TRACK SOLUTION, notre efficacité opérationnelle a augmenté de 35%. Le suivi en temps réel et les rapports détaillés nous permettent de prendre des décisions éclairées.',
     rating: 5,
   },
   {
@@ -34,7 +34,7 @@ const testimonials = [
     name: 'Fatma Bouzid',
     role: 'Directrice Générale',
     company: 'Livraison Rapide TN',
-    content: 'GPSTrack a transformé notre façon de gérer les livraisons. Les alertes en temps réel et l\'historique des trajets nous ont permis d\'améliorer considérablement notre service client.',
+    content: 'VIEW TRACK SOLUTION a transformé notre façon de gérer les livraisons. Les alertes en temps réel et l\'historique des trajets nous ont permis d\'améliorer considérablement notre service client.',
     rating: 5,
   },
 ];
@@ -61,7 +61,7 @@ export const Testimonials = () => {
     <section id="testimonials" className="section-padding bg-background relative overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-dots opacity-30" />
-      
+
       <div className="container-custom relative z-10" ref={ref}>
         {/* Section Header */}
         <motion.div
@@ -77,7 +77,7 @@ export const Testimonials = () => {
             Ce que Nos <span className="text-gradient">Clients Disent</span>
           </h2>
           <p className="text-muted-foreground text-lg">
-            Découvrez comment GPSTrack aide les entreprises à optimiser leur gestion de flotte.
+            Découvrez comment VIEW TRACK SOLUTION aide les entreprises à optimiser leur gestion de flotte.
           </p>
         </motion.div>
 
@@ -92,7 +92,7 @@ export const Testimonials = () => {
             {/* Main Card */}
             <div className="glass-card rounded-3xl p-8 lg:p-12">
               <Quote className="w-12 h-12 text-accent/30 mb-6" />
-              
+
               {/* Stars */}
               <div className="flex gap-1 mb-6">
                 {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
@@ -143,18 +143,17 @@ export const Testimonials = () => {
               >
                 <ChevronLeft className="w-5 h-5" />
               </Button>
-              
+
               {/* Dots */}
               <div className="flex items-center gap-2">
                 {testimonials.map((_, index) => (
                   <button
                     key={index}
                     onClick={() => setCurrentIndex(index)}
-                    className={`w-2.5 h-2.5 rounded-full transition-all ${
-                      index === currentIndex 
-                        ? 'bg-accent w-8' 
+                    className={`w-2.5 h-2.5 rounded-full transition-all ${index === currentIndex
+                        ? 'bg-accent w-8'
                         : 'bg-border hover:bg-muted-foreground'
-                    }`}
+                      }`}
                   />
                 ))}
               </div>

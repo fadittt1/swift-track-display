@@ -11,22 +11,22 @@ const contactInfo = [
   {
     icon: MapPin,
     title: 'Adresse',
-    content: '123 Avenue de la Technologie\nTunis 1000, Tunisie',
+    content: 'B 74 Imm Mont Plaisir Etage 7\n1073 Tunis, Tunisie',
   },
   {
     icon: Phone,
     title: 'Téléphone',
-    content: '+216 12 345 678\n+216 98 765 432',
+    content: '28 899 594\nFidélité au service',
   },
   {
     icon: Mail,
     title: 'Email',
-    content: 'contact@gpstrack.tn\nsupport@gpstrack.tn',
+    content: 'contact@viewtrack.tn\nsupport@viewtrack.tn',
   },
   {
     icon: Clock,
     title: 'Horaires',
-    content: 'Lun - Ven: 8h00 - 18h00\nSam: 9h00 - 13h00',
+    content: 'Lun - Ven: 8h30 - 17h30\nSam: 9h00 - 12h30',
   },
 ];
 
@@ -45,15 +45,15 @@ export const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simulate form submission
     await new Promise(resolve => setTimeout(resolve, 1500));
-    
+
     toast({
       title: "Message envoyé !",
       description: "Nous vous répondrons dans les plus brefs délais.",
     });
-    
+
     setFormData({ name: '', email: '', phone: '', message: '' });
     setIsSubmitting(false);
   };
@@ -69,7 +69,7 @@ export const Contact = () => {
     <section id="contact" className="section-padding bg-muted relative overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-dots opacity-30" />
-      
+
       <div className="container-custom relative z-10" ref={ref}>
         {/* Section Header */}
         <motion.div
@@ -100,7 +100,7 @@ export const Contact = () => {
               <h3 className="text-2xl font-display font-bold text-foreground mb-6">
                 Demandez un Devis Gratuit
               </h3>
-              
+
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
@@ -145,7 +145,7 @@ export const Contact = () => {
                     type="tel"
                     value={formData.phone}
                     onChange={handleChange}
-                    placeholder="+216 XX XXX XXX"
+                    placeholder="28 899 594"
                     className="bg-background border-border focus:border-accent"
                   />
                 </div>
@@ -236,7 +236,7 @@ export const Contact = () => {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="GPSTrack Location"
+                title="VIEW TRACK SOLUTION Location"
               />
             </motion.div>
           </motion.div>

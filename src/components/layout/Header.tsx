@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, MapPin, ChevronDown } from 'lucide-react';
+import { Menu, X, Navigation, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const navItems = [
@@ -50,12 +50,12 @@ export const Header = () => {
                             onClick={(e) => { e.preventDefault(); scrollToSection('#hero'); }}
                             className="flex items-center gap-2 group"
                         >
-                            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-accent to-emerald-light flex items-center justify-center shadow-glow">
-                                <MapPin className="w-5 h-5 text-white" />
+                            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#1a365d] to-[#f6ad55] flex items-center justify-center shadow-glow">
+                                <Navigation className="w-5 h-5 text-white rotate-45" />
                             </div>
-                            <span className={`font-display font-bold text-xl transition-colors ${isScrolled ? 'text-foreground' : 'text-white'
+                            <span className={`font-display font-bold text-xl tracking-tight transition-colors ${isScrolled ? 'text-foreground' : 'text-white'
                                 }`}>
-                                GPS<span className="text-accent">Track</span>
+                                VIEW <span className="text-accent underline decoration-orange-400 decoration-2 underline-offset-4">TRACK</span> SOLUTION
                             </span>
                         </a>
 
