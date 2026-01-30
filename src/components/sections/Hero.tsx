@@ -75,7 +75,7 @@ export const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl md:text-5xl lg:text-7xl font-sans font-bold text-white mb-8 leading-tight"
+            className="text-4xl md:text-5xl lg:text-7xl font-display font-bold text-white mb-6 leading-tight"
           >
             Suivez Vos Véhicules{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 drop-shadow-[0_0_15px_rgba(34,211,238,0.3)]">
@@ -88,10 +88,9 @@ export const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg md:text-xl text-white/90 mb-12 max-w-2xl mx-auto leading-relaxed font-medium"
+            className="text-lg md:text-xl text-white/70 mb-10 max-w-2xl mx-auto leading-relaxed"
           >
-            Solutions avancées pour la gestion de flotte, la sécurité
-            et l'optimisation de vos opérations. Technologie GPS de pointe hautement sécurisée.
+            Fleet monitoring & Security , Flow closly !
           </motion.p>
 
           {/* CTA Buttons */}
