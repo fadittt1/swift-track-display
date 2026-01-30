@@ -8,30 +8,32 @@
 
 @layer base {
     :root {
-        /* Primary - Deep Navy Blue (Trust, Technology) */
-        --primary: 222 84% 20%;
+        /* Primary - Deep Navy (Premium, Corporate) */
+        --primary: 222 28% 9%;
+        /* #11141E */
         --primary-foreground: 0 0% 100%;
 
         /* Background & Surfaces */
         --background: 210 40% 98%;
-        --foreground: 222 84% 10%;
+        --foreground: 222 28% 9%;
 
         --card: 0 0% 100%;
-        --card-foreground: 222 84% 10%;
+        --card-foreground: 222 28% 9%;
 
         --popover: 0 0% 100%;
-        --popover-foreground: 222 84% 10%;
+        --popover-foreground: 222 28% 9%;
 
-        /* Secondary - Light Blue Gray */
-        --secondary: 214 32% 91%;
-        --secondary-foreground: 222 84% 20%;
+        /* Secondary - Dark Blue Gray */
+        --secondary: 222 38% 14%;
+        /* #161E31 */
+        --secondary-foreground: 0 0% 100%;
 
-        /* Muted */
-        --muted: 214 32% 94%;
-        --muted-foreground: 215 25% 45%;
+        /* Steel Blue (#133457) */
+        --muted: 210 53% 14%;
+        --muted-foreground: 215 25% 65%;
 
-        /* Accent - Vibrant Green (Action, Success) */
-        --accent: 152 69% 45%;
+        /* Accent - Cyan Tech Highlight (#1E7FA6) */
+        --accent: 197 55% 42%;
         --accent-foreground: 0 0% 100%;
 
         /* Destructive */
@@ -39,33 +41,37 @@
         --destructive-foreground: 0 0% 100%;
 
         /* Borders & Inputs */
-        --border: 214 32% 88%;
-        --input: 214 32% 88%;
-        --ring: 222 84% 20%;
+        --border: 222 20% 88%;
+        --input: 222 20% 88%;
+        --ring: 197 55% 42%;
 
         --radius: 0.75rem;
 
-        /* Custom Colors */
-        --navy: 222 84% 15%;
-        --navy-light: 222 60% 25%;
-        --sky: 200 98% 45%;
-        --emerald: 152 69% 45%;
-        --emerald-light: 152 69% 55%;
-        --slate: 215 20% 65%;
+        /* Custom Colors matched to the new palette */
+        --navy: 222 28% 9%;
+        /* #11141E */
+        --navy-light: 222 38% 14%;
+        /* #161E31 */
+        --steel: 210 53% 14%;
+        /* #133457 */
+        --sky: 201 51% 22%;
+        /* #1C5F88 */
+        --cyan: 197 55% 42%;
+        /* #1E7FA6 */
 
-        /* Gradients */
-        --gradient-primary: linear-gradient(135deg, hsl(222 84% 20%) 0%, hsl(222 60% 30%) 100%);
-        --gradient-accent: linear-gradient(135deg, hsl(152 69% 45%) 0%, hsl(152 69% 55%) 100%);
-        --gradient-hero: linear-gradient(180deg, hsl(222 84% 15% / 0.95) 0%, hsl(222 84% 10% / 0.98) 100%);
-        --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(214 32% 98%) 100%);
+        /* Gradients - Professional Tech Blue */
+        --gradient-primary: linear-gradient(135deg, hwb(222 7% 88%) 0%, hsl(222 38% 14%) 100%);
+        --gradient-accent: linear-gradient(135deg, hsl(201 51% 32%) 0%, hsl(197 55% 52%) 100%);
+        --gradient-hero: linear-gradient(180deg, hsl(222 28% 9% / 0.95) 0%, hsl(222 28% 5% / 0.98) 100%);
+        --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(222 38% 98%) 100%);
         --gradient-glass: linear-gradient(135deg, hsl(0 0% 100% / 0.1) 0%, hsl(0 0% 100% / 0.05) 100%);
 
-        /* Shadows */
-        --shadow-sm: 0 1px 2px hsl(222 84% 10% / 0.05);
-        --shadow-md: 0 4px 12px hsl(222 84% 10% / 0.08);
-        --shadow-lg: 0 12px 40px hsl(222 84% 10% / 0.12);
-        --shadow-xl: 0 24px 60px hsl(222 84% 10% / 0.15);
-        --shadow-glow: 0 0 40px hsl(152 69% 45% / 0.3);
+        /* Shadows - Blue tinted */
+        --shadow-sm: 0 1px 2px hsl(222 28% 5% / 0.05);
+        --shadow-md: 0 4px 12px hsl(222 28% 5% / 0.08);
+        --shadow-lg: 0 12px 40px hsl(222 28% 5% / 0.12);
+        --shadow-xl: 0 24px 60px hsl(222 28% 5% / 0.15);
+        --shadow-glow: 0 0 40px hsl(197 55% 42% / 0.3);
 
         /* Sidebar */
         --sidebar-background: 0 0% 98%;

@@ -45,7 +45,7 @@ const AnimatedCounter = ({ value, suffix }: { value: number; suffix: string }) =
       const steps = 60;
       const increment = value / steps;
       let current = 0;
-      
+
       const timer = setInterval(() => {
         current += increment;
         if (current >= value) {
@@ -75,7 +75,7 @@ export const Stats = () => {
     <section id="stats" className="section-padding bg-muted relative overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-dots opacity-30" />
-      
+
       <div className="container-custom relative z-10" ref={ref}>
         {/* Section Header */}
         <motion.div
@@ -87,8 +87,8 @@ export const Stats = () => {
           <span className="text-accent font-semibold text-sm uppercase tracking-wider mb-4 block">
             Nos Chiffres
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-6">
-            La Confiance de <span className="text-gradient">Milliers de Clients</span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-6">
+            La Confiance de <span className="text-gradient-accent">Milliers de Clients</span>
           </h2>
           <p className="text-muted-foreground text-lg">
             Des chiffres qui témoignent de notre engagement envers l'excellence et la satisfaction client.

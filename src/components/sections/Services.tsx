@@ -1,12 +1,12 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { 
-  MapPin, 
-  Truck, 
-  Shield, 
-  BarChart3, 
-  Smartphone, 
+import {
+  MapPin,
+  Truck,
+  Shield,
+  BarChart3,
+  Smartphone,
   Clock,
   ArrowRight
 } from 'lucide-react';
@@ -66,7 +66,7 @@ export const Services = () => {
     <section id="services" className="section-padding bg-background relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-dots opacity-50" />
-      
+
       <div className="container-custom relative z-10" ref={ref}>
         {/* Section Header */}
         <motion.div
@@ -82,7 +82,7 @@ export const Services = () => {
             Solutions GPS <span className="text-gradient">Complètes</span>
           </h2>
           <p className="text-muted-foreground text-lg">
-            Découvrez notre gamme complète de services de géolocalisation conçus pour répondre 
+            Découvrez notre gamme complète de services de géolocalisation conçus pour répondre
             à tous vos besoins de gestion de flotte et de sécurité véhicule.
           </p>
         </motion.div>
@@ -111,7 +111,7 @@ export const Services = () => {
               </p>
 
               {/* Link */}
-              <a 
+              <a
                 href="#contact"
                 onClick={(e) => { e.preventDefault(); scrollToContact(); }}
                 className="inline-flex items-center text-accent font-medium text-sm group-hover:gap-2 transition-all"
@@ -130,7 +130,7 @@ export const Services = () => {
           transition={{ duration: 0.6, delay: 0.6 }}
           className="text-center mt-16"
         >
-          <Button 
+          <Button
             onClick={scrollToContact}
             className="btn-accent text-lg px-8 py-6"
           >

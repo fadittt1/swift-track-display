@@ -32,8 +32,8 @@ export const Hero = () => {
         style={{ backgroundImage: `url(${heroPattern})` }}
       />
 
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0A1628]/80 via-[#0A1628]/40 to-[#0A1628]/90" />
+      {/* Overlay: Improved with the new deep navy tones */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#11141E]/80 via-[#11141E]/40 to-[#11141E]/90" />
 
       {/* Floating Icons */}
       {floatingIcons.map(({ Icon, delay, position }, index) => (
@@ -57,15 +57,15 @@ export const Hero = () => {
       {/* Content */}
       <div className="container-custom relative z-10 pt-20">
         <div className="max-w-4xl mx-auto text-center">
-          {/* Badge */}
+          {/* Badge: Refined Glassmorphism */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-8"
+            className="inline-flex items-center gap-2 px-5 py-2 rounded-full glass mb-8 border border-white/10 shadow-glow-blue"
           >
-            <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-            <span className="text-white/90 text-sm font-medium">
+            <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse shadow-[0_0_10px_rgba(34,211,238,0.8)]" />
+            <span className="text-white/95 text-xs md:text-sm font-semibold tracking-wide uppercase">
               Leader en Solutions GPS depuis 2014
             </span>
           </motion.div>
@@ -75,10 +75,12 @@ export const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl md:text-5xl lg:text-7xl font-display font-bold text-white mb-6 leading-tight"
+            className="text-4xl md:text-5xl lg:text-7xl font-sans font-bold text-white mb-8 leading-tight"
           >
             Suivez Vos Véhicules{' '}
-            <span className="text-gradient-accent">en Temps Réel</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 drop-shadow-[0_0_15px_rgba(34,211,238,0.3)]">
+              en Temps Réel
+            </span>
           </motion.h1>
 
           {/* Subtitle */}
@@ -86,10 +88,10 @@ export const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg md:text-xl text-white/70 mb-10 max-w-2xl mx-auto leading-relaxed"
+            className="text-lg md:text-xl text-white/90 mb-12 max-w-2xl mx-auto leading-relaxed font-medium"
           >
             Solutions avancées pour la gestion de flotte, la sécurité
-            et l'optimisation de vos opérations. Technologie GPS de pointe.
+            et l'optimisation de vos opérations. Technologie GPS de pointe hautement sécurisée.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -97,11 +99,11 @@ export const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
+            className="flex flex-col sm:flex-row items-center justify-center gap-6"
           >
             <Button
               onClick={scrollToContact}
-              className="btn-accent text-lg px-8 py-6 group"
+              className="bg-gradient-to-r from-[#1C5F88] to-[#1E7FA6] hover:from-[#1E7FA6] hover:to-[#1C5F88] text-white text-lg px-10 py-7 rounded-2xl group transition-all duration-300 shadow-lg shadow-cyan-900/40"
             >
               Demander une Démo
               <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
@@ -109,9 +111,9 @@ export const Hero = () => {
             <Button
               onClick={scrollToServices}
               variant="ghost"
-              className="btn-outline-light text-lg px-8 py-6 group"
+              className="border-2 border-white/20 text-white hover:bg-white/10 text-lg px-10 py-7 rounded-2xl group transition-all duration-300 backdrop-blur-sm"
             >
-              <Play className="mr-2 w-5 h-5" />
+              <Play className="mr-2 w-5 h-5 fill-white" />
               Découvrir Nos Services
             </Button>
           </motion.div>

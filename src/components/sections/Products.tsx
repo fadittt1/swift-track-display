@@ -82,7 +82,7 @@ export const Products = () => {
                                 <a
                                     href="#"
                                     onClick={(e) => { e.preventDefault(); scrollToContact(); }}
-                                    className="text-blue-600 hover:text-blue-700 text-sm font-medium inline-block transition-colors"
+                                    className="text-cyan-600 hover:text-cyan-700 text-sm font-semibold inline-block transition-colors"
                                 >
                                     {product.loginText}
                                 </a>

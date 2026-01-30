@@ -81,8 +81,8 @@ export const Contact = () => {
           <span className="text-accent font-semibold text-sm uppercase tracking-wider mb-4 block">
             Contact
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-6">
-            Parlons de <span className="text-gradient">Votre Projet</span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-6">
+            Parlons de <span className="text-gradient-accent">Votre Projet</span>
           </h2>
           <p className="text-muted-foreground text-lg">
             Notre équipe d'experts est prête à vous accompagner dans votre projet de géolocalisation.
@@ -208,7 +208,7 @@ export const Contact = () => {
                   transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
                   className="glass-card rounded-2xl p-5 group hover:shadow-lg transition-all"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-accent to-emerald-light flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#1C5F88] to-[#1E7FA6] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg shadow-cyan-900/20">
                     <info.icon className="w-6 h-6 text-white" />
                   </div>
                   <h4 className="font-display font-bold text-foreground mb-2">

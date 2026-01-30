@@ -59,7 +59,7 @@ export const Footer = () => {
           {/* Brand */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2 mb-6">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#1a365d] to-[#f6ad55] flex items-center justify-center">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#11141E] to-[#1E7FA6] flex items-center justify-center border border-white/10">
                 <Navigation className="w-5 h-5 text-white rotate-45" />
               </div>
               <span className="font-display font-bold text-xl text-white">
