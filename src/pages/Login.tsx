@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Mail, Lock, Eye, EyeOff, Loader2, AlertCircle, Navigation } from 'lucide-react';
@@ -10,6 +11,7 @@ import { useToast } from '@/hooks/use-toast';
 import { Logo } from '@/components/ui/Logo';
 
 const Login = () => {
+  const { t } = useTranslation();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -33,14 +35,14 @@ const Login = () => {
     if (error) {
       setError(
         error.message === 'Invalid login credentials'
-          ? 'Email ou mot de passe incorrect'
-          : 'Une erreur est survenue. Veuillez réessayer.'
+          ? t('auth.login.error.invalid')
+          : t('auth.login.error.generic')
       );
       setLoading(false);
     } else {
       toast({
-        title: "Connexion réussie",
-        description: "Bienvenue dans votre espace client !",
+        title: t('auth.login.success.title'),
+        description: t('auth.login.success.desc'),
       });
       navigate(from, { replace: true });
     }
@@ -65,10 +67,10 @@ const Login = () => {
           </Link>
 
           <h1 className="text-3xl font-display font-bold text-foreground mb-2">
-            Connexion
+            {t('auth.login.title')}
           </h1>
           <p className="text-muted-foreground mb-8">
-            Accédez à votre espace client pour gérer votre flotte
+            {t('auth.login.subtitle')}
           </p>
 
           {error && (
@@ -84,33 +86,33 @@ const Login = () => {
 
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="space-y-2">
-              <Label htmlFor="email" className="text-foreground">Adresse email</Label>
+              <Label htmlFor="email" className="text-foreground">{t('auth.login.email')}</Label>
               <div className="relative">
-                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-foreground/50" />
                 <Input
                   id="email"
                   type="email"
-                  placeholder="vous@exemple.com"
+                  placeholder={t('auth.login.emailPlaceholder')}
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  className="pl-10 h-12 bg-muted/50 border-border"
+                  className="pl-10 h-12 bg-white border-border focus:bg-white"
                 />
               </div>
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="password" className="text-foreground">Mot de passe</Label>
+              <Label htmlFor="password" className="text-foreground">{t('auth.login.password')}</Label>
               <div className="relative">
-                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-foreground/50" />
                 <Input
                   id="password"
                   type={showPassword ? 'text' : 'password'}
-                  placeholder="••••••••"
+                  placeholder={t('auth.login.passwordPlaceholder')}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
-                  className="pl-10 pr-10 h-12 bg-muted/50 border-border"
+                  className="pl-10 pr-10 h-12 bg-white border-border focus:bg-white"
                 />
                 <button
                   type="button"
@@ -130,26 +132,26 @@ const Login = () => {
               {loading ? (
                 <>
                   <Loader2 className="w-5 h-5 animate-spin mr-2" />
-                  Connexion en cours...
+                  {t('auth.login.submitting')}
                 </>
               ) : (
-                'Se connecter'
+                t('auth.login.submit')
               )}
             </Button>
           </form>
 
           <div className="mt-8 text-center">
             <p className="text-muted-foreground">
-              Pas encore de compte ?{' '}
+              {t('auth.login.noAccount')}{' '}
               <Link to="/signup" className="text-accent hover:underline font-medium">
-                Créer un compte
+                {t('auth.login.createAccount')}
               </Link>
             </p>
           </div>
 
           <div className="mt-6 text-center">
             <Link to="/" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              ← Retour à l'accueil
+              {t('auth.login.backToHome')}
             </Link>
           </div>
         </motion.div>
@@ -168,10 +170,10 @@ const Login = () => {
             <Navigation className="w-10 h-10 text-white rotate-45" />
           </div>
           <h2 className="text-3xl font-display font-bold mb-4">
-            Gérez votre flotte en toute simplicité
+            {t('auth.login.panel.title')}
           </h2>
           <p className="text-white/80 text-lg">
-            Accédez à vos données de suivi GPS, gérez vos véhicules et restez informé de l'activité de votre flotte en temps réel.
+            {t('auth.login.panel.desc')}
           </p>
         </motion.div>
       </div>

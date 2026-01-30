@@ -1,22 +1,25 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ChevronDown, User, LogIn } from 'lucide-react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Menu, X, User, LogIn } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Logo } from '@/components/ui/Logo';
 import { useAuth } from '@/contexts/AuthContext';
+import { useTranslation } from 'react-i18next';
+import { LanguageSwitcher } from './LanguageSwitcher';
 
 const navItems = [
-    { name: 'Accueil', href: '#hero' },
-    { name: 'Services', href: '#services' },
-    { name: 'Produits', href: '#products' },
-    { name: 'À Propos', href: '#stats' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'nav.home', href: '#hero' },
+    { name: 'nav.services', href: '#services' },
+    { name: 'nav.products', href: '#products' },
+    { name: 'nav.stats', href: '#stats' },
+    { name: 'nav.contact', href: '#contact' },
 ];
 
 export const Header = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const { t } = useTranslation();
     const { user } = useAuth();
     const navigate = useNavigate();
 
@@ -72,13 +75,15 @@ export const Header = () => {
                                     className={`text-sm font-medium transition-colors hover:text-accent ${isScrolled ? 'text-foreground/80' : 'text-white/90'
                                         }`}
                                 >
-                                    {item.name}
+                                    {t(item.name)}
                                 </a>
                             ))}
                         </nav>
 
-                        {/* CTA Buttons */}
+                        {/* Language Switcher & CTA Buttons */}
                         <div className="hidden lg:flex items-center gap-3">
+                            <LanguageSwitcher isScrolled={isScrolled} />
+                            <div className="w-[1px] h-6 bg-white/10 mx-2" />
                             {user ? (
                                 <Button
                                     onClick={() => navigate('/dashboard')}
@@ -95,13 +100,13 @@ export const Header = () => {
                                         className={isScrolled ? 'text-foreground hover:bg-muted' : 'text-white hover:bg-white/10'}
                                     >
                                         <LogIn className="w-4 h-4 mr-2" />
-                                        Connexion
+                                        {t('nav.login')}
                                     </Button>
                                     <Button
                                         onClick={() => scrollToSection('#contact')}
                                         className="btn-accent"
                                     >
-                                        Demander un Devis
+                                        {t('hero.ctaDemo')}
                                     </Button>
                                 </>
                             )}
@@ -150,13 +155,16 @@ export const Header = () => {
                                             initial={{ opacity: 0, x: 20 }}
                                             animate={{ opacity: 1, x: 0 }}
                                             transition={{ delay: index * 0.05 }}
-                                            className="px-4 py-3 rounded-xl text-foreground font-medium hover:bg-muted transition-colors"
+                                            className="px-4 py-3 rounded-xl text-foreground font-medium hover:bg-muted transition-colors text-right"
                                         >
-                                            {item.name}
+                                            {t(item.name)}
                                         </motion.a>
                                     ))}
                                 </div>
-                                <div className="mt-6 pt-6 border-t border-border space-y-3">
+                                <div className="mt-6 pt-6 border-t border-border space-y-4">
+                                    <div className="flex justify-start px-4">
+                                        <LanguageSwitcher isScrolled={true} />
+                                    </div>
                                     {user ? (
                                         <Button
                                             onClick={() => { setIsMobileMenuOpen(false); navigate('/dashboard'); }}
@@ -173,13 +181,13 @@ export const Header = () => {
                                                 className="w-full"
                                             >
                                                 <LogIn className="w-4 h-4 mr-2" />
-                                                Connexion
+                                                {t('nav.login')}
                                             </Button>
                                             <Button
                                                 onClick={() => scrollToSection('#contact')}
                                                 className="btn-accent w-full"
                                             >
-                                                Demander un Devis
+                                                {t('hero.ctaDemo')}
                                             </Button>
                                         </>
                                     )}

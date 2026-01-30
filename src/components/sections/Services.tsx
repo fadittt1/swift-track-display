@@ -1,5 +1,5 @@
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { useRef } from 'react';
 import {
   MapPin,
@@ -15,43 +15,38 @@ import { Button } from '@/components/ui/button';
 const services = [
   {
     icon: MapPin,
-    title: 'Suivi en Temps Réel',
-    description: 'Localisez vos véhicules instantanément avec une précision GPS de haute qualité. Visualisez les trajets en direct sur une carte interactive.',
+    key: 'realtime',
     color: 'from-blue-500 to-cyan-500',
   },
   {
     icon: Truck,
-    title: 'Gestion de Flotte',
-    description: 'Optimisez la gestion de votre flotte avec des outils de planification, suivi de maintenance et analyse de performance des conducteurs.',
+    key: 'fleet',
     color: 'from-emerald-500 to-teal-500',
   },
   {
     icon: Shield,
-    title: 'Sécurité Renforcée',
-    description: 'Protégez vos véhicules avec des alertes de vol, l\'immobilisation à distance du moteur et la détection de mouvements suspects.',
+    key: 'security',
     color: 'from-orange-500 to-amber-500',
   },
   {
     icon: BarChart3,
-    title: 'Rapports Détaillés',
-    description: 'Accédez à des rapports complets sur les trajets, la consommation de carburant, les temps d\'arrêt et les statistiques de conduite.',
+    key: 'reports',
     color: 'from-purple-500 to-pink-500',
   },
   {
     icon: Smartphone,
-    title: 'Application Mobile',
-    description: 'Suivez votre flotte depuis n\'importe où avec notre application mobile intuitive disponible sur iOS et Android.',
+    key: 'mobile',
     color: 'from-rose-500 to-red-500',
   },
   {
     icon: Clock,
-    title: 'Historique Complet',
-    description: 'Consultez l\'historique détaillé des trajets sur 12 mois avec replay des itinéraires et analyse des habitudes de conduite.',
+    key: 'history',
     color: 'from-indigo-500 to-blue-500',
   },
 ];
 
 export const Services = () => {
+  const { t } = useTranslation();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
@@ -76,14 +71,13 @@ export const Services = () => {
           className="text-center max-w-3xl mx-auto mb-16"
         >
           <span className="text-accent font-semibold text-sm uppercase tracking-wider mb-4 block">
-            Nos Services
+            {t('services.badge')}
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-6">
-            Solutions GPS <span className="text-gradient">Complètes</span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-6 text-center">
+            {t('services.title')} <span className="text-gradient">{t('services.titleAccent')}</span>
           </h2>
-          <p className="text-muted-foreground text-lg">
-            Découvrez notre gamme complète de services de géolocalisation conçus pour répondre
-            à tous vos besoins de gestion de flotte et de sécurité véhicule.
+          <p className="text-muted-foreground text-lg text-center">
+            {t('services.description')}
           </p>
         </motion.div>
 
@@ -91,7 +85,7 @@ export const Services = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {services.map((service, index) => (
             <motion.div
-              key={service.title}
+              key={service.key}
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -104,10 +98,10 @@ export const Services = () => {
 
               {/* Content */}
               <h3 className="text-xl font-display font-bold text-foreground mb-3 group-hover:text-accent transition-colors">
-                {service.title}
+                {t(`services.items.${service.key}.title`)}
               </h3>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                {service.description}
+                {t(`services.items.${service.key}.description`)}
               </p>
 
               {/* Link */}
@@ -116,7 +110,7 @@ export const Services = () => {
                 onClick={(e) => { e.preventDefault(); scrollToContact(); }}
                 className="inline-flex items-center text-accent font-medium text-sm group-hover:gap-2 transition-all"
               >
-                En savoir plus
+                {t('services.learnMore')}
                 <ArrowRight className="w-4 h-4 ml-1 opacity-0 group-hover:opacity-100 transition-all" />
               </a>
             </motion.div>
@@ -134,8 +128,8 @@ export const Services = () => {
             onClick={scrollToContact}
             className="btn-accent text-lg px-8 py-6"
           >
-            Obtenir un Devis Gratuit
-            <ArrowRight className="ml-2 w-5 h-5" />
+            {t('services.ctaDevis')}
+            <ArrowRight className="ml-2 w-5 h-5 font-bold" />
           </Button>
         </motion.div>
       </div>

@@ -23,13 +23,14 @@
         --popover: 0 0% 100%;
         --popover-foreground: 222 28% 9%;
 
-        /* Secondary - Light Professional Gray/Blue */
-        --secondary: 210 40% 96.1%;
-        --secondary-foreground: 222.2 47.4% 11.2%;
+        /* Secondary - Dark Blue Gray */
+        --secondary: 222 38% 14%;
+        /* #161E31 */
+        --secondary-foreground: 0 0% 100%;
 
-        /* Muted elements in light mode */
-        --muted: 210 40% 96.1%;
-        --muted-foreground: 215.4 16.3% 46.9%;
+        /* Steel Blue (#133457) */
+        --muted: 210 53% 14%;
+        --muted-foreground: 215 25% 65%;
 
         /* Accent - Cyan Tech Highlight (#1E7FA6) */
         --accent: 197 55% 42%;

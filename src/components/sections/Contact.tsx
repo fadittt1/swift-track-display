@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { MapPin, Phone, Mail, Clock, Send, CheckCircle } from 'lucide-react';
@@ -10,27 +11,24 @@ import { useToast } from '@/hooks/use-toast';
 const contactInfo = [
   {
     icon: MapPin,
-    title: 'Adresse',
-    content: 'B 74 Imm Mont Plaisir Etage 7\n1073 Tunis, Tunisie',
+    key: 'address',
   },
   {
     icon: Phone,
-    title: 'Téléphone',
-    content: '28 899 594\nFidélité au service',
+    key: 'phone',
   },
   {
     icon: Mail,
-    title: 'Email',
-    content: 'contact@viewtrack.tn\nsupport@viewtrack.tn',
+    key: 'email',
   },
   {
     icon: Clock,
-    title: 'Horaires',
-    content: 'Lun - Ven: 8h30 - 17h30\nSam: 9h00 - 12h30',
+    key: 'hours',
   },
 ];
 
 export const Contact = () => {
+  const { t } = useTranslation();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
   const { toast } = useToast();
@@ -50,8 +48,8 @@ export const Contact = () => {
     await new Promise(resolve => setTimeout(resolve, 1500));
 
     toast({
-      title: "Message envoyé !",
-      description: "Nous vous répondrons dans les plus brefs délais.",
+      title: t('contact.form.successTitle'),
+      description: t('contact.form.successDesc'),
     });
 
     setFormData({ name: '', email: '', phone: '', message: '' });
@@ -79,13 +77,13 @@ export const Contact = () => {
           className="text-center max-w-3xl mx-auto mb-16"
         >
           <span className="text-accent font-semibold text-sm uppercase tracking-wider mb-4 block">
-            Contact
+            {t('contact.badge')}
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-6">
-            Parlons de <span className="text-gradient-accent">Votre Projet</span>
+            {t('contact.title')} <span className="text-gradient-accent">{t('contact.titleAccent')}</span>
           </h2>
           <p className="text-muted-foreground text-lg">
-            Notre équipe d'experts est prête à vous accompagner dans votre projet de géolocalisation.
+            {t('contact.description')}
           </p>
         </motion.div>
 
@@ -98,14 +96,14 @@ export const Contact = () => {
           >
             <div className="glass-card rounded-3xl p-8 lg:p-10">
               <h3 className="text-2xl font-display font-bold text-foreground mb-6">
-                Demandez un Devis Gratuit
+                {t('contact.form.title')}
               </h3>
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
-                      Nom Complet *
+                      {t('contact.form.name')}
                     </label>
                     <Input
                       id="name"
@@ -114,13 +112,13 @@ export const Contact = () => {
                       required
                       value={formData.name}
                       onChange={handleChange}
-                      placeholder="Votre nom"
+                      placeholder={t('contact.form.namePlaceholder')}
                       className="bg-background border-border focus:border-accent"
                     />
                   </div>
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                      Email *
+                      {t('contact.form.email')}
                     </label>
                     <Input
                       id="email"
@@ -129,7 +127,7 @@ export const Contact = () => {
                       required
                       value={formData.email}
                       onChange={handleChange}
-                      placeholder="votre@email.com"
+                      placeholder={t('contact.form.emailPlaceholder')}
                       className="bg-background border-border focus:border-accent"
                     />
                   </div>
@@ -137,7 +135,7 @@ export const Contact = () => {
 
                 <div>
                   <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-2">
-                    Téléphone
+                    {t('contact.form.phone')}
                   </label>
                   <Input
                     id="phone"
@@ -145,14 +143,14 @@ export const Contact = () => {
                     type="tel"
                     value={formData.phone}
                     onChange={handleChange}
-                    placeholder="28 899 594"
+                    placeholder={t('contact.form.phonePlaceholder')}
                     className="bg-background border-border focus:border-accent"
                   />
                 </div>
 
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
-                    Message *
+                    {t('contact.form.message')}
                   </label>
                   <Textarea
                     id="message"
@@ -160,7 +158,7 @@ export const Contact = () => {
                     required
                     value={formData.message}
                     onChange={handleChange}
-                    placeholder="Décrivez votre projet..."
+                    placeholder={t('contact.form.messagePlaceholder')}
                     rows={5}
                     className="bg-background border-border focus:border-accent resize-none"
                   />
@@ -178,12 +176,12 @@ export const Contact = () => {
                         transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
                         className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full mr-2"
                       />
-                      Envoi en cours...
+                      {t('contact.form.submitting')}
                     </>
                   ) : (
                     <>
                       <Send className="w-5 h-5 mr-2" />
-                      Envoyer le Message
+                      {t('contact.form.submit')}
                     </>
                   )}
                 </Button>
@@ -202,7 +200,7 @@ export const Contact = () => {
             <div className="grid sm:grid-cols-2 gap-4">
               {contactInfo.map((info, index) => (
                 <motion.div
-                  key={info.title}
+                  key={info.key}
                   initial={{ opacity: 0, y: 20 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
@@ -212,10 +210,10 @@ export const Contact = () => {
                     <info.icon className="w-6 h-6 text-white" />
                   </div>
                   <h4 className="font-display font-bold text-foreground mb-2">
-                    {info.title}
+                    {t(`contact.info.${info.key}`)}
                   </h4>
                   <p className="text-muted-foreground text-sm whitespace-pre-line">
-                    {info.content}
+                    {t(`contact.info.${info.key}Content`)}
                   </p>
                 </motion.div>
               ))}

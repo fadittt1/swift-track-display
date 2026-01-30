@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Mail, Lock, Eye, EyeOff, Loader2, AlertCircle, Navigation, User } from 'lucide-react';
@@ -9,6 +10,7 @@ import { useAuth } from '@/contexts/AuthContext';
 import { Logo } from '@/components/ui/Logo';
 
 const Signup = () => {
+  const { t } = useTranslation();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -24,12 +26,12 @@ const Signup = () => {
     setError(null);
 
     if (password !== confirmPassword) {
-      setError('Les mots de passe ne correspondent pas');
+      setError(t('auth.signup.error.mismatch'));
       return;
     }
 
     if (password.length < 6) {
-      setError('Le mot de passe doit contenir au moins 6 caractères');
+      setError(t('auth.signup.error.length'));
       return;
     }
 
@@ -40,8 +42,8 @@ const Signup = () => {
     if (error) {
       setError(
         error.message.includes('already registered') || error.message.includes('registered')
-          ? 'Cette adresse email est déjà utilisée'
-          : 'Une erreur est survenue. Veuillez réessayer.'
+          ? t('auth.signup.error.exists')
+          : t('auth.signup.error.generic')
       );
       setLoading(false);
     } else {
@@ -69,10 +71,10 @@ const Signup = () => {
           </Link>
 
           <h1 className="text-3xl font-display font-bold text-foreground mb-2">
-            Créer un compte
+            {t('auth.signup.title')}
           </h1>
           <p className="text-muted-foreground mb-8">
-            Rejoignez-nous pour gérer votre flotte de véhicules
+            {t('auth.signup.subtitle')}
           </p>
 
           {error && (
@@ -88,34 +90,34 @@ const Signup = () => {
 
           <form onSubmit={handleSubmit} className="space-y-5">
             <div className="space-y-2">
-              <Label htmlFor="email" className="text-foreground">Adresse email</Label>
+              <Label htmlFor="email" className="text-foreground">{t('auth.signup.email')}</Label>
               <div className="relative">
-                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-foreground/50" />
                 <Input
                   id="email"
                   type="email"
-                  placeholder="vous@exemple.com"
+                  placeholder={t('auth.signup.emailPlaceholder')}
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  className="pl-10 h-12 bg-muted/50 border-border"
+                  className="pl-10 h-12 bg-white border-border focus:bg-white"
                 />
               </div>
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="password" className="text-foreground">Mot de passe</Label>
+              <Label htmlFor="password" className="text-foreground">{t('auth.signup.password')}</Label>
               <div className="relative">
-                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-foreground/50" />
                 <Input
                   id="password"
                   type={showPassword ? 'text' : 'password'}
-                  placeholder="Au moins 6 caractères"
+                  placeholder={t('auth.signup.passwordPlaceholder')}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
                   minLength={6}
-                  className="pl-10 pr-10 h-12 bg-muted/50 border-border"
+                  className="pl-10 pr-10 h-12 bg-white border-border focus:bg-white"
                 />
                 <button
                   type="button"
@@ -128,17 +130,17 @@ const Signup = () => {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="confirmPassword" className="text-foreground">Confirmer le mot de passe</Label>
+              <Label htmlFor="confirmPassword" className="text-foreground">{t('auth.signup.confirmPassword')}</Label>
               <div className="relative">
-                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-foreground/50" />
                 <Input
                   id="confirmPassword"
                   type={showPassword ? 'text' : 'password'}
-                  placeholder="Retapez votre mot de passe"
+                  placeholder={t('auth.signup.confirmPasswordPlaceholder')}
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}
                   required
-                  className="pl-10 h-12 bg-muted/50 border-border"
+                  className="pl-10 h-12 bg-white border-border focus:bg-white"
                 />
               </div>
             </div>
@@ -151,26 +153,26 @@ const Signup = () => {
               {loading ? (
                 <>
                   <Loader2 className="w-5 h-5 animate-spin mr-2" />
-                  Création du compte...
+                  {t('auth.signup.submitting')}
                 </>
               ) : (
-                'Créer mon compte'
+                t('auth.signup.submit')
               )}
             </Button>
           </form>
 
           <div className="mt-8 text-center">
             <p className="text-muted-foreground">
-              Déjà un compte ?{' '}
+              {t('auth.signup.hasAccount')}{' '}
               <Link to="/login" className="text-accent hover:underline font-medium">
-                Se connecter
+                {t('auth.signup.loginInstead')}
               </Link>
             </p>
           </div>
 
           <div className="mt-6 text-center">
             <Link to="/" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              ← Retour à l'accueil
+              {t('auth.login.backToHome')}
             </Link>
           </div>
         </motion.div>
@@ -189,10 +191,10 @@ const Signup = () => {
             <User className="w-10 h-10 text-white" />
           </div>
           <h2 className="text-3xl font-display font-bold mb-4">
-            Rejoignez + de 2,400 clients satisfaits
+            {t('auth.signup.panel.title')}
           </h2>
           <p className="text-white/80 text-lg">
-            Créez votre compte en quelques secondes et commencez à suivre votre flotte en temps réel dès aujourd'hui.
+            {t('auth.signup.panel.desc')}
           </p>
         </motion.div>
       </div>

@@ -1,0 +1,293 @@
+{
+    "nav": {
+        "home": "Accueil",
+        "services": "Services",
+        "products": "Produits",
+        "stats": "Stats",
+        "testimonials": "Témoignages",
+        "contact": "Contact",
+        "login": "Connexion",
+        "dashboard": "Tableau de bord"
+    },
+    "hero": {
+        "badge": "Leader en solutions GPS depuis 2014",
+        "title": "Suivez vos véhicules ",
+        "titleAccent": "en temps réel",
+        "subtitle": "Surveillance de flotte et sécurité, suivez de près !",
+        "ctaDemo": "Demander une Démo",
+        "ctaServices": "Découvrir Nos Services"
+    },
+    "services": {
+        "badge": "Nos Services",
+        "title": "Solutions GPS ",
+        "titleAccent": "Complètes",
+        "description": "Découvrez notre gamme complète de services de géolocalisation conçus pour répondre à tous vos besoins de gestion de flotte et de sécurité véhicule.",
+        "ctaDevis": "Obtenir un Devis Gratuit",
+        "learnMore": "En savoir plus",
+        "items": {
+            "realtime": {
+                "title": "Suivi en Temps Réel",
+                "description": "Localisez vos véhicules instantanément avec une précision GPS de haute qualité."
+            },
+            "fleet": {
+                "title": "Gestion de Flotte",
+                "description": "Optimisez la gestion de votre flotte avec des outils de planification et suivi."
+            },
+            "security": {
+                "title": "Sécurité Renforcée",
+                "description": "Protégez vos véhicules avec des alertes de vol et immobilisation à distance."
+            },
+            "reports": {
+                "title": "Rapports Détaillés",
+                "description": "Accédez à des rapports complets sur les trajets et la consommation."
+            },
+            "mobile": {
+                "title": "Application Mobile",
+                "description": "Suivez votre flotte depuis n'importe où avec notre application intuitive."
+            },
+            "history": {
+                "title": "Historique Complet",
+                "description": "Consultez l'historique détaillé des trajets avec replay des itinéraires."
+            }
+        }
+    },
+    "features": {
+        "badge": "Fonctionnalités",
+        "title": "Tout ce Dont Vous Avez ",
+        "titleAccent": "Besoin",
+        "description": "Une suite complète d'outils puissants pour une gestion optimale de vos véhicules.",
+        "items": {
+            "precise": {
+                "title": "Localisation Précise",
+                "description": "GPS haute précision < 5 mètres"
+            },
+            "geofencing": {
+                "title": "Géofencing",
+                "description": "Zones virtuelles et alertes"
+            },
+            "speed": {
+                "title": "Excès de Vitesse",
+                "description": "Notifications de survitesse"
+            },
+            "accident": {
+                "title": "Détection d'Accident",
+                "description": "Capteurs de choc et alertes"
+            },
+            "immobilization": {
+                "title": "Immobilisation Moteur",
+                "description": "Coupez le moteur à distance"
+            },
+            "push": {
+                "title": "Notifications Push",
+                "description": "Alertes temps réel sur mobile"
+            },
+            "route": {
+                "title": "Optimisation Trajets",
+                "description": "Itinéraires les plus économiques"
+            },
+            "gauge": {
+                "title": "Analyse de Conduite",
+                "description": "Score et recommandations"
+            },
+            "fuel": {
+                "title": "Suivi Carburant",
+                "description": "Contrôlez la consommation"
+            },
+            "reports": {
+                "title": "Rapports Automatiques",
+                "description": "Personnalisés par email"
+            },
+            "users": {
+                "title": "Multi-Utilisateurs",
+                "description": "Accès hiérarchisé"
+            },
+            "support": {
+                "title": "Support 24/7",
+                "description": "Assistance continue"
+            }
+        }
+    },
+    "products": {
+        "title": "Produit recommandé",
+        "subtitle": "nos produits les plus vendus sur amazon",
+        "viewAll": "Tout voir",
+        "loginToDashboard": "Connexion au tableau de bord",
+        "readMore": "Lire la suite",
+        "items": {
+            "catGps": "GPS pour chat PET PRO"
+        },
+        "categories": {
+            "gpsPerso": "GPS PERSONNEL"
+        }
+    },
+    "stats": {
+        "badge": "Nos Chiffres",
+        "title": "La Confiance de ",
+        "titleAccent": "Milliers de Clients",
+        "description": "Des chiffres qui témoignent de notre engagement envers l'excellence et la satisfaction client.",
+        "items": {
+            "vehicles": {
+                "label": "Véhicules Équipés",
+                "description": "Flotte totale gérée"
+            },
+            "clients": {
+                "label": "Clients Satisfaits",
+                "description": "Entreprises et particuliers"
+            },
+            "experience": {
+                "label": "Années d'Expérience",
+                "description": "Expertise confirmée"
+            },
+            "satisfaction": {
+                "label": "Taux de Satisfaction",
+                "description": "Service client premium"
+            }
+        }
+    },
+    "testimonials": {
+        "badge": "Témoignages",
+        "title": "Ce que Nos ",
+        "titleAccent": "Clients Disent",
+        "description": "Découvrez comment VIEW TRACK SOLUTION aide les entreprises à optimiser leur gestion de flotte.",
+        "trust": "Ils nous font confiance",
+        "items": {
+            "1": {
+                "name": "Mohamed Ben Ali",
+                "role": "Directeur Logistique",
+                "company": "TransTunisie SARL",
+                "content": "Depuis que nous utilisons VIEW TRACK SOLUTION, notre efficacité opérationnelle a augmenté de 35%. Le suivi en temps réel et les rapports détaillés nous permettent de prendre des décisions éclairées."
+            },
+            "2": {
+                "name": "Sonia Khemiri",
+                "role": "Responsable de Flotte",
+                "company": "Distribution Express",
+                "content": "L'interface est intuitive et le support client est exceptionnel. Nous avons réduit nos coûts de carburant de 20% grâce aux analyses de trajets et à l'optimisation des itinéraires."
+            },
+            "3": {
+                "name": "Ahmed Mansour",
+                "role": "Gérant",
+                "company": "Taxi Sfax Plus",
+                "content": "La fonctionnalité de géofencing est parfaite pour notre activité de taxi. Nous pouvons maintenant surveiller tous nos véhicules et assurer la sécurité de nos chauffeurs."
+            },
+            "4": {
+                "name": "Fatma Bouzid",
+                "role": "Directrice Générale",
+                "company": "Livraison Rapide TN",
+                "content": "VIEW TRACK SOLUTION a transformé notre façon de gérer les livraisons. Les alertes en temps réel et l'historique des trajets nous ont permis d'améliorer considérablement notre service client."
+            }
+        }
+    },
+    "contact": {
+        "badge": "Contact",
+        "title": "Parlons de ",
+        "titleAccent": "Votre Projet",
+        "description": "Notre équipe d'experts est prête à vous accompagner dans votre projet de géolocalisation.",
+        "form": {
+            "title": "Demandez un Devis Gratuit",
+            "name": "Nom Complet *",
+            "namePlaceholder": "Votre nom",
+            "email": "Email *",
+            "emailPlaceholder": "votre@email.com",
+            "phone": "Téléphone",
+            "phonePlaceholder": "28 899 594",
+            "message": "Message *",
+            "messagePlaceholder": "Décrivez votre projet...",
+            "submit": "Envoyer le Message",
+            "submitting": "Envoi en cours...",
+            "successTitle": "Message envoyé !",
+            "successDesc": "Nous vous répondrons dans les plus brefs délais."
+        },
+        "info": {
+            "address": "Adresse",
+            "addressContent": "B 74 Imm Mont Plaisir Etage 7\n1073 Tunis, Tunisie",
+            "phone": "Téléphone",
+            "phoneContent": "28 899 594\nFidélité au service",
+            "email": "Email",
+            "emailContent": "contact@viewtrack.tn\nsupport@viewtrack.tn",
+            "hours": "Horaires",
+            "hoursContent": "Lun - Ven: 8h30 - 17h30\nSam: 9h00 - 12h30"
+        }
+    },
+    "footer": {
+        "newsletter": {
+            "title": "Restez Informé",
+            "placeholder": "Votre email",
+            "submit": "S'abonner"
+        },
+        "brand": {
+            "description": "Point Central Appui - Fleet monitoring & Security. Solutions de suivi GPS professionnelles avec plus de 10 ans d'expertise."
+        },
+        "sections": {
+            "services": "Services",
+            "company": "Entreprise",
+            "contact": "Contact"
+        },
+        "links": {
+            "realtime": "Suivi en Temps Réel",
+            "geofencing": "Géofencing",
+            "reports": "Rapports & Analyses",
+            "fleet": "Gestion de Flotte",
+            "about": "À Propos",
+            "clients": "Nos Clients",
+            "careers": "Carrières",
+            "blog": "Blog",
+            "help": "Centre d'Aide",
+            "docs": "Documentation",
+            "privacy": "Politique de Confidentialité",
+            "terms": "Conditions d'Utilisation"
+        },
+        "bottom": "© 2025 VIEW TRACK SOLUTION. Tous droits réservés."
+    },
+    "auth": {
+        "login": {
+            "title": "Connexion",
+            "subtitle": "Accédez à votre espace client pour gérer votre flotte",
+            "email": "Adresse email",
+            "emailPlaceholder": "vous@exemple.com",
+            "password": "Mot de passe",
+            "passwordPlaceholder": "••••••••",
+            "forgotPassword": "Mot de passe oublié ?",
+            "submit": "Se connecter",
+            "submitting": "Connexion en cours...",
+            "noAccount": "Pas encore de compte ?",
+            "createAccount": "Créer un compte",
+            "backToHome": "← Retour à l'accueil",
+            "error": {
+                "invalid": "Email ou mot de passe incorrect",
+                "generic": "Une erreur est survenue. Veuillez réessayer."
+            },
+            "success": {
+                "title": "Connexion réussie",
+                "desc": "Bienvenue dans votre espace client !"
+            },
+            "panel": {
+                "title": "Gérez votre flotte en toute simplicité",
+                "desc": "Accédez à vos données de suivi GPS, gérez vos véhicules et restez informé de l'activité de votre flotte en temps réel."
+            }
+        },
+        "signup": {
+            "title": "Créer un compte",
+            "subtitle": "Rejoignez-nous pour gérer votre flotte de véhicules",
+            "email": "Adresse email",
+            "emailPlaceholder": "vous@exemple.com",
+            "password": "Mot de passe",
+            "passwordPlaceholder": "Au moins 6 caractères",
+            "confirmPassword": "Confirmer le mot de passe",
+            "confirmPasswordPlaceholder": "Retapez votre mot de passe",
+            "submit": "S'inscrire",
+            "submitting": "Création du compte...",
+            "hasAccount": "Déjà un compte ?",
+            "loginInstead": "Se connecter",
+            "error": {
+                "mismatch": "Les mots de passe ne correspondent pas",
+                "length": "Le mot de passe doit contenir au moins 6 caractères",
+                "exists": "Cette adresse email est déjà utilisée",
+                "generic": "Une erreur est survenue. Veuillez réessayer."
+            },
+            "panel": {
+                "title": "Rejoignez + de 2,400 clients satisfaits",
+                "desc": "Créez votre compte en quelques secondes et commencez à suivre votre flotte en temps réel dès aujourd'hui."
+            }
+        }
+    }
+}

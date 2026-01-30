@@ -1,0 +1,293 @@
+{
+    "nav": {
+        "home": "Home",
+        "services": "Services",
+        "products": "Products",
+        "stats": "Stats",
+        "testimonials": "Testimonials",
+        "contact": "Contact",
+        "login": "Login",
+        "dashboard": "Dashboard"
+    },
+    "hero": {
+        "badge": "Leader in GPS solutions since 2014",
+        "title": "Track your vehicles ",
+        "titleAccent": "in real time",
+        "subtitle": "Fleet monitoring & Security, stay close to your flow!",
+        "ctaDemo": "Request a Demo",
+        "ctaServices": "Explore Our Services"
+    },
+    "services": {
+        "badge": "Our Services",
+        "title": "Complete ",
+        "titleAccent": "GPS Solutions",
+        "description": "Discover our full range of geolocation services designed to meet all your fleet management and vehicle security needs.",
+        "ctaDevis": "Get a Free Quote",
+        "learnMore": "Learn more",
+        "items": {
+            "realtime": {
+                "title": "Real-Time Tracking",
+                "description": "Locate your vehicles instantly with high-quality GPS precision."
+            },
+            "fleet": {
+                "title": "Fleet Management",
+                "description": "Optimize your fleet management with planning and tracking tools."
+            },
+            "security": {
+                "title": "Enhanced Security",
+                "description": "Protect your vehicles with theft alerts and remote immobilization."
+            },
+            "reports": {
+                "title": "Detailed Reports",
+                "description": "Access comprehensive journey and consumption reports."
+            },
+            "mobile": {
+                "title": "Mobile App",
+                "description": "Track your fleet from anywhere with our intuitive mobile app."
+            },
+            "history": {
+                "title": "Full History",
+                "description": "View detailed trip history with route replay."
+            }
+        }
+    },
+    "features": {
+        "badge": "Features",
+        "title": "Everything You ",
+        "titleAccent": "Need",
+        "description": "A complete suite of powerful tools for optimal vehicle management.",
+        "items": {
+            "precise": {
+                "title": "Precise Location",
+                "description": "High precision GPS < 5 meters"
+            },
+            "geofencing": {
+                "title": "Geofencing",
+                "description": "Virtual zones and alerts"
+            },
+            "speed": {
+                "title": "Speeding Alerts",
+                "description": "Overspeed notifications"
+            },
+            "accident": {
+                "title": "Accident Detection",
+                "description": "Shock sensors and alerts"
+            },
+            "immobilization": {
+                "title": "Engine Immobilization",
+                "description": "Remote engine cutoff"
+            },
+            "push": {
+                "title": "Push Notifications",
+                "description": "Real-time mobile alerts"
+            },
+            "route": {
+                "title": "Route Optimization",
+                "description": "Most economical routes"
+            },
+            "gauge": {
+                "title": "Driving Analysis",
+                "description": "Driving score and tips"
+            },
+            "fuel": {
+                "title": "Fuel Monitoring",
+                "description": "Track consumption live"
+            },
+            "reports": {
+                "title": "Automatic Reports",
+                "description": "Custom email reports"
+            },
+            "users": {
+                "title": "Multi-User",
+                "description": "Hierarchical access"
+            },
+            "support": {
+                "title": "24/7 Support",
+                "description": "Continuous assistance"
+            }
+        }
+    },
+    "products": {
+        "title": "Recommended Product",
+        "subtitle": "our best-selling products on Amazon",
+        "viewAll": "View All",
+        "loginToDashboard": "Login to dashboard",
+        "readMore": "Read more",
+        "items": {
+            "catGps": "PET PRO Cat GPS"
+        },
+        "categories": {
+            "gpsPerso": "PERSONAL GPS"
+        }
+    },
+    "stats": {
+        "badge": "Our Numbers",
+        "title": "Trusted by ",
+        "titleAccent": "Thousands of Clients",
+        "description": "Numbers that testify to our commitment to excellence and customer satisfaction.",
+        "items": {
+            "vehicles": {
+                "label": "Vehicles Equipped",
+                "description": "Total fleet managed"
+            },
+            "clients": {
+                "label": "Satisfied Clients",
+                "description": "Companies and individuals"
+            },
+            "experience": {
+                "label": "Years of Experience",
+                "description": "Proven expertise"
+            },
+            "satisfaction": {
+                "label": "Satisfaction Rate",
+                "description": "Premium customer service"
+            }
+        }
+    },
+    "testimonials": {
+        "badge": "Testimonials",
+        "title": "What Our ",
+        "titleAccent": "Clients Say",
+        "description": "Discover how VIEW TRACK SOLUTION helps companies optimize their fleet management.",
+        "trust": "They trust us",
+        "items": {
+            "1": {
+                "name": "Mohamed Ben Ali",
+                "role": "Logistics Director",
+                "company": "TransTunisie SARL",
+                "content": "Since we started using VIEW TRACK SOLUTION, our operational efficiency has increased by 35%. Real-time tracking and detailed reports allow us to make informed decisions."
+            },
+            "2": {
+                "name": "Sonia Khemiri",
+                "role": "Fleet Manager",
+                "company": "Distribution Express",
+                "content": "The interface is intuitive and customer support is exceptional. We reduced our fuel costs by 20% thanks to route analysis and optimization."
+            },
+            "3": {
+                "name": "Ahmed Mansour",
+                "role": "Manager",
+                "company": "Taxi Sfax Plus",
+                "content": "The geofencing functionality is perfect for our taxi business. We can now monitor all our vehicles and ensure chauffeur safety."
+            },
+            "4": {
+                "name": "Fatma Bouzid",
+                "role": "General Manager",
+                "company": "Livraison Rapide TN",
+                "content": "VIEW TRACK SOLUTION transformed our delivery management. Real-time alerts and journey history significantly improved our customer service."
+            }
+        }
+    },
+    "contact": {
+        "badge": "Contact",
+        "title": "Let's Talk About ",
+        "titleAccent": "Your Project",
+        "description": "Our team of experts is ready to assist you with your geolocation project.",
+        "form": {
+            "title": "Request a Free Quote",
+            "name": "Full Name *",
+            "namePlaceholder": "Your name",
+            "email": "Email *",
+            "emailPlaceholder": "your@email.com",
+            "phone": "Phone",
+            "phonePlaceholder": "28 899 594",
+            "message": "Message *",
+            "messagePlaceholder": "Describe your project...",
+            "submit": "Send Message",
+            "submitting": "Sending...",
+            "successTitle": "Message sent!",
+            "successDesc": "We will get back to you as soon as possible."
+        },
+        "info": {
+            "address": "Address",
+            "addressContent": "B 74 Imm Mont Plaisir Floor 7\n1073 Tunis, Tunisia",
+            "phone": "Phone",
+            "phoneContent": "28 899 594\nLoyalty to service",
+            "email": "Email",
+            "emailContent": "contact@viewtrack.tn\nsupport@viewtrack.tn",
+            "hours": "Hours",
+            "hoursContent": "Mon - Fri: 8:30 AM - 5:30 PM\nSat: 9:00 AM - 12:30 PM"
+        }
+    },
+    "footer": {
+        "newsletter": {
+            "title": "Stay Informed",
+            "placeholder": "Your email",
+            "submit": "Subscribe"
+        },
+        "brand": {
+            "description": "Central Point Support - Fleet monitoring & Security. Professional GPS tracking solutions with over 10 years of expertise."
+        },
+        "sections": {
+            "services": "Services",
+            "company": "Company",
+            "contact": "Contact"
+        },
+        "links": {
+            "realtime": "Real-Time Tracking",
+            "geofencing": "Geofencing",
+            "reports": "Reports & Analytics",
+            "fleet": "Fleet Management",
+            "about": "About Us",
+            "clients": "Our Clients",
+            "careers": "Careers",
+            "blog": "Blog",
+            "help": "Help Center",
+            "docs": "Documentation",
+            "privacy": "Privacy Policy",
+            "terms": "Terms of Use"
+        },
+        "bottom": "© 2025 VIEW TRACK SOLUTION. All rights reserved."
+    },
+    "auth": {
+        "login": {
+            "title": "Login",
+            "subtitle": "Access your client space to manage your fleet",
+            "email": "Email address",
+            "emailPlaceholder": "you@example.com",
+            "password": "Password",
+            "passwordPlaceholder": "••••••••",
+            "forgotPassword": "Forgot Password?",
+            "submit": "Log In",
+            "submitting": "Logging in...",
+            "noAccount": "Don't have an account?",
+            "createAccount": "Create an account",
+            "backToHome": "← Back to home",
+            "error": {
+                "invalid": "Incorrect email or password",
+                "generic": "An error occurred. Please try again."
+            },
+            "success": {
+                "title": "Login successful",
+                "desc": "Welcome to your client space!"
+            },
+            "panel": {
+                "title": "Manage your fleet with ease",
+                "desc": "Access your GPS tracking data, manage your vehicles, and stay informed about your fleet's activity in real-time."
+            }
+        },
+        "signup": {
+            "title": "Create an Account",
+            "subtitle": "Join us to manage your vehicle fleet",
+            "email": "Email address",
+            "emailPlaceholder": "you@example.com",
+            "password": "Password",
+            "passwordPlaceholder": "At least 6 characters",
+            "confirmPassword": "Confirm Password",
+            "confirmPasswordPlaceholder": "Retype your password",
+            "submit": "Sign Up",
+            "submitting": "Creating account...",
+            "hasAccount": "Already have an account?",
+            "loginInstead": "Log In",
+            "error": {
+                "mismatch": "Passwords do not match",
+                "length": "Password must contain at least 6 characters",
+                "exists": "This email address is already in use",
+                "generic": "An error occurred. Please try again."
+            },
+            "panel": {
+                "title": "Join over 2,400 satisfied clients",
+                "desc": "Create your account in seconds and start tracking your fleet in real-time today."
+            }
+        }
+    }
+}

@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { Quote, Star, ChevronLeft, ChevronRight, Building2 } from 'lucide-react';
@@ -7,34 +8,18 @@ import { Button } from '@/components/ui/button';
 const testimonials = [
   {
     id: 1,
-    name: 'Mohamed Ben Ali',
-    role: 'Directeur Logistique',
-    company: 'TransTunisie SARL',
-    content: 'Depuis que nous utilisons VIEW TRACK SOLUTION, notre efficacité opérationnelle a augmenté de 35%. Le suivi en temps réel et les rapports détaillés nous permettent de prendre des décisions éclairées.',
     rating: 5,
   },
   {
     id: 2,
-    name: 'Sonia Khemiri',
-    role: 'Responsable de Flotte',
-    company: 'Distribution Express',
-    content: 'L\'interface est intuitive et le support client est exceptionnel. Nous avons réduit nos coûts de carburant de 20% grâce aux analyses de trajets et à l\'optimisation des itinéraires.',
     rating: 5,
   },
   {
     id: 3,
-    name: 'Ahmed Mansour',
-    role: 'Gérant',
-    company: 'Taxi Sfax Plus',
-    content: 'La fonctionnalité de géofencing est parfaite pour notre activité de taxi. Nous pouvons maintenant surveiller tous nos véhicules et assurer la sécurité de nos chauffeurs.',
     rating: 5,
   },
   {
     id: 4,
-    name: 'Fatma Bouzid',
-    role: 'Directrice Générale',
-    company: 'Livraison Rapide TN',
-    content: 'VIEW TRACK SOLUTION a transformé notre façon de gérer les livraisons. Les alertes en temps réel et l\'historique des trajets nous ont permis d\'améliorer considérablement notre service client.',
     rating: 5,
   },
 ];
@@ -45,6 +30,7 @@ const clients = [
 ];
 
 export const Testimonials = () => {
+  const { t } = useTranslation();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -71,13 +57,13 @@ export const Testimonials = () => {
           className="text-center max-w-3xl mx-auto mb-16"
         >
           <span className="text-accent font-semibold text-sm uppercase tracking-wider mb-4 block">
-            Témoignages
+            {t('testimonials.badge')}
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-6">
-            Ce que Nos <span className="text-gradient">Clients Disent</span>
+            {t('testimonials.title')} <span className="text-gradient">{t('testimonials.titleAccent')}</span>
           </h2>
           <p className="text-muted-foreground text-lg">
-            Découvrez comment VIEW TRACK SOLUTION aide les entreprises à optimiser leur gestion de flotte.
+            {t('testimonials.description')}
           </p>
         </motion.div>
 
@@ -108,7 +94,7 @@ export const Testimonials = () => {
                 transition={{ duration: 0.3 }}
                 className="text-xl lg:text-2xl text-foreground leading-relaxed mb-8"
               >
-                "{testimonials[currentIndex].content}"
+                "{t(`testimonials.items.${testimonials[currentIndex].id}.content`)}"
               </motion.p>
 
               {/* Author */}
@@ -120,14 +106,14 @@ export const Testimonials = () => {
                 className="flex items-center gap-4"
               >
                 <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary to-navy-light flex items-center justify-center text-white font-bold text-lg">
-                  {testimonials[currentIndex].name.charAt(0)}
+                  {t(`testimonials.items.${testimonials[currentIndex].id}.name`).charAt(0)}
                 </div>
                 <div>
                   <h4 className="font-display font-bold text-foreground">
-                    {testimonials[currentIndex].name}
+                    {t(`testimonials.items.${testimonials[currentIndex].id}.name`)}
                   </h4>
                   <p className="text-muted-foreground text-sm">
-                    {testimonials[currentIndex].role} • {testimonials[currentIndex].company}
+                    {t(`testimonials.items.${testimonials[currentIndex].id}.role`)} • {t(`testimonials.items.${testimonials[currentIndex].id}.company`)}
                   </p>
                 </div>
               </motion.div>
@@ -151,8 +137,8 @@ export const Testimonials = () => {
                     key={index}
                     onClick={() => setCurrentIndex(index)}
                     className={`w-2.5 h-2.5 rounded-full transition-all ${index === currentIndex
-                        ? 'bg-accent w-8'
-                        : 'bg-border hover:bg-muted-foreground'
+                      ? 'bg-accent w-8'
+                      : 'bg-border hover:bg-muted-foreground'
                       }`}
                   />
                 ))}
@@ -178,7 +164,7 @@ export const Testimonials = () => {
           className="text-center"
         >
           <p className="text-muted-foreground text-sm uppercase tracking-wider mb-8">
-            Ils nous font confiance
+            {t('testimonials.trust')}
           </p>
           <div className="flex flex-wrap justify-center items-center gap-8 lg:gap-12">
             {clients.map((client, index) => (

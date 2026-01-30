@@ -1,4 +1,5 @@
 import { motion, useSpring, useTransform } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { useInView } from 'framer-motion';
 import { useRef, useEffect, useState } from 'react';
 import { Car, Users, Calendar, Award } from 'lucide-react';
@@ -8,29 +9,25 @@ const stats = [
     icon: Car,
     value: 7100,
     suffix: '+',
-    label: 'Véhicules Équipés',
-    description: 'Flotte totale gérée',
+    key: 'vehicles',
   },
   {
     icon: Users,
     value: 2400,
     suffix: '+',
-    label: 'Clients Satisfaits',
-    description: 'Entreprises et particuliers',
+    key: 'clients',
   },
   {
     icon: Calendar,
     value: 10,
     suffix: '+',
-    label: 'Années d\'Expérience',
-    description: 'Expertise confirmée',
+    key: 'experience',
   },
   {
     icon: Award,
     value: 99,
     suffix: '%',
-    label: 'Taux de Satisfaction',
-    description: 'Service client premium',
+    key: 'satisfaction',
   },
 ];
 
@@ -68,6 +65,7 @@ const AnimatedCounter = ({ value, suffix }: { value: number; suffix: string }) =
 };
 
 export const Stats = () => {
+  const { t } = useTranslation();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
@@ -85,13 +83,13 @@ export const Stats = () => {
           className="text-center max-w-3xl mx-auto mb-16"
         >
           <span className="text-accent font-semibold text-sm uppercase tracking-wider mb-4 block">
-            Nos Chiffres
+            {t('stats.badge')}
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-6">
-            La Confiance de <span className="text-gradient-accent">Milliers de Clients</span>
+            {t('stats.title')} <span className="text-gradient-accent">{t('stats.titleAccent')}</span>
           </h2>
           <p className="text-muted-foreground text-lg">
-            Des chiffres qui témoignent de notre engagement envers l'excellence et la satisfaction client.
+            {t('stats.description')}
           </p>
         </motion.div>
 
@@ -99,7 +97,7 @@ export const Stats = () => {
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {stats.map((stat, index) => (
             <motion.div
-              key={stat.label}
+              key={stat.key}
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -117,10 +115,10 @@ export const Stats = () => {
 
               {/* Label */}
               <h3 className="text-foreground font-display font-bold text-lg mb-1">
-                {stat.label}
+                {t(`stats.items.${stat.key}.label`)}
               </h3>
               <p className="text-muted-foreground text-sm">
-                {stat.description}
+                {t(`stats.items.${stat.key}.description`)}
               </p>
             </motion.div>
           ))}

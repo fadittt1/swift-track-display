@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Play } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import heroPattern from '@/assets/hero-pattern-nano.png';
 
@@ -7,6 +8,7 @@ const floatingIcons = [
 ];
 
 export const Hero = () => {
+  const { t } = useTranslation();
   const scrollToContact = () => {
     const element = document.querySelector('#contact');
     if (element) {
@@ -66,7 +68,7 @@ export const Hero = () => {
           >
             <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse shadow-[0_0_10px_rgba(34,211,238,0.8)]" />
             <span className="text-white/95 text-xs md:text-sm font-semibold tracking-wide uppercase">
-              Leader en Solutions GPS depuis 2014
+              {t('hero.badge')}
             </span>
           </motion.div>
 
@@ -77,9 +79,9 @@ export const Hero = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-4xl md:text-5xl lg:text-7xl font-display font-bold text-white mb-6 leading-tight"
           >
-            Suivez Vos Véhicules{' '}
+            {t('hero.title')}{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 drop-shadow-[0_0_15px_rgba(34,211,238,0.3)]">
-              en Temps Réel
+              {t('hero.titleAccent')}
             </span>
           </motion.h1>
 
@@ -90,7 +92,7 @@ export const Hero = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-lg md:text-xl text-white/70 mb-10 max-w-2xl mx-auto leading-relaxed"
           >
-            Fleet monitoring & Security , Flow closly !
+            {t('hero.subtitle')}
           </motion.p>
 
           {/* CTA Buttons */}
@@ -104,7 +106,7 @@ export const Hero = () => {
               onClick={scrollToContact}
               className="bg-gradient-to-r from-[#1C5F88] to-[#1E7FA6] hover:from-[#1E7FA6] hover:to-[#1C5F88] text-white text-lg px-10 py-7 rounded-2xl group transition-all duration-300 shadow-lg shadow-cyan-900/40"
             >
-              Demander une Démo
+              {t('hero.ctaDemo')}
               <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
             </Button>
             <Button
@@ -113,7 +115,7 @@ export const Hero = () => {
               className="border-2 border-white/20 text-white hover:bg-white/10 text-lg px-10 py-7 rounded-2xl group transition-all duration-300 backdrop-blur-sm"
             >
               <Play className="mr-2 w-5 h-5 fill-white" />
-              Découvrir Nos Services
+              {t('hero.ctaServices')}
             </Button>
           </motion.div>
 

@@ -125,8 +125,8 @@ const Dashboard = () => {
               <button
                 key={item.label}
                 className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-colors ${item.active
-                    ? 'bg-accent text-white'
-                    : 'text-muted-foreground hover:bg-muted hover:text-foreground'
+                  ? 'bg-accent text-white'
+                  : 'text-muted-foreground hover:bg-muted hover:text-foreground'
                   }`}
               >
                 <item.icon className="w-5 h-5" />
@@ -352,15 +352,15 @@ const Dashboard = () => {
               </CardContent>
             </Card>
 
-            <Card className="bg-gradient-to-br from-secondary/50 to-secondary/30 border-secondary">
+            <Card className="bg-secondary/10 border-secondary">
               <CardContent className="pt-6">
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-muted flex items-center justify-center">
-                    <Bell className="w-6 h-6 text-muted-foreground" />
+                  <div className="w-12 h-12 rounded-xl bg-secondary/20 flex items-center justify-center">
+                    <Bell className="w-6 h-6 text-secondary-foreground shadow-sm" />
                   </div>
                   <div>
                     <p className="text-2xl font-bold text-foreground">0</p>
-                    <p className="text-sm text-muted-foreground">Alertes actives</p>
+                    <p className="text-sm text-foreground/70 font-medium">Alertes actives</p>
                   </div>
                 </div>
               </CardContent>
@@ -375,7 +375,7 @@ const Dashboard = () => {
               transition={{ delay: 0.3 }}
               className="mt-8"
             >
-              <Card className="bg-accent/5 border-accent/20">
+              <Card className="bg-accent/10 border-accent/20">
                 <CardContent className="pt-6">
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0">
@@ -383,10 +383,10 @@ const Dashboard = () => {
                     </div>
                     <div>
                       <h3 className="font-semibold text-foreground mb-1">Complétez votre profil</h3>
-                      <p className="text-muted-foreground text-sm mb-4">
+                      <p className="text-foreground/80 text-sm mb-4">
                         Renseignez vos informations d'entreprise pour faciliter la gestion de votre compte et bénéficier d'un meilleur support.
                       </p>
-                      <Button onClick={startEditing} variant="outline" size="sm">
+                      <Button onClick={startEditing} variant="outline" size="sm" className="bg-white hover:bg-white/90">
                         Compléter maintenant
                       </Button>
                     </div>
