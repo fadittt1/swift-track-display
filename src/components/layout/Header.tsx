@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown, User, LogIn } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Logo } from '@/components/ui/Logo';
+import { useAuth } from '@/contexts/AuthContext';
 
 const navItems = [
     { name: 'Accueil', href: '#hero' },
@@ -17,6 +19,8 @@ const navItems = [
 export const Header = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const { user } = useAuth();
+    const navigate = useNavigate();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -75,14 +79,34 @@ export const Header = () => {
                             ))}
                         </nav>
 
-                        {/* CTA Button */}
-                        <div className="hidden lg:flex items-center gap-4">
-                            <Button
-                                onClick={() => scrollToSection('#contact')}
-                                className="btn-accent"
-                            >
-                                Demander un Devis
-                            </Button>
+                        {/* CTA Buttons */}
+                        <div className="hidden lg:flex items-center gap-3">
+                            {user ? (
+                                <Button
+                                    onClick={() => navigate('/dashboard')}
+                                    className="btn-accent"
+                                >
+                                    <User className="w-4 h-4 mr-2" />
+                                    Mon Espace
+                                </Button>
+                            ) : (
+                                <>
+                                    <Button
+                                        onClick={() => navigate('/login')}
+                                        variant="ghost"
+                                        className={isScrolled ? 'text-foreground hover:bg-muted' : 'text-white hover:bg-white/10'}
+                                    >
+                                        <LogIn className="w-4 h-4 mr-2" />
+                                        Connexion
+                                    </Button>
+                                    <Button
+                                        onClick={() => scrollToSection('#contact')}
+                                        className="btn-accent"
+                                    >
+                                        Demander un Devis
+                                    </Button>
+                                </>
+                            )}
                         </div>
 
                         {/* Mobile Menu Button */}
@@ -134,13 +158,33 @@ export const Header = () => {
                                         </motion.a>
                                     ))}
                                 </div>
-                                <div className="mt-6 pt-6 border-t border-border">
-                                    <Button
-                                        onClick={() => scrollToSection('#contact')}
-                                        className="btn-accent w-full"
-                                    >
-                                        Demander un Devis
-                                    </Button>
+                                <div className="mt-6 pt-6 border-t border-border space-y-3">
+                                    {user ? (
+                                        <Button
+                                            onClick={() => { setIsMobileMenuOpen(false); navigate('/dashboard'); }}
+                                            className="btn-accent w-full"
+                                        >
+                                            <User className="w-4 h-4 mr-2" />
+                                            Mon Espace Client
+                                        </Button>
+                                    ) : (
+                                        <>
+                                            <Button
+                                                onClick={() => { setIsMobileMenuOpen(false); navigate('/login'); }}
+                                                variant="outline"
+                                                className="w-full"
+                                            >
+                                                <LogIn className="w-4 h-4 mr-2" />
+                                                Connexion
+                                            </Button>
+                                            <Button
+                                                onClick={() => scrollToSection('#contact')}
+                                                className="btn-accent w-full"
+                                            >
+                                                Demander un Devis
+                                            </Button>
+                                        </>
+                                    )}
                                 </div>
                             </div>
                         </motion.nav>
