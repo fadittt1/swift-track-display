@@ -59,9 +59,9 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <div className="flex items-center gap-2 mb-6">
+            <div className="flex items-center gap-4 mb-6">
               <Logo size="md" />
-              <span className="font-display font-bold text-xl text-white">
+              <span className="font-display font-bold text-xl text-white tracking-wide">
                 VIEW TRACK SOLUTION
               </span>
             </div>

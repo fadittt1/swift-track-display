@@ -22,7 +22,7 @@ export const Logo: React.FC<LogoProps> = ({
 
     return (
         <div
-            className={`flex items-center justify-center rounded-xl overflow-hidden border ${withBackground
+            className={`flex items-center justify-center rounded-full overflow-hidden border ${withBackground
                 ? 'bg-white shadow-sm border-[#E5E7EB]'
                 : 'bg-transparent border-transparent'
                 } ${className}`}
@@ -34,7 +34,7 @@ export const Logo: React.FC<LogoProps> = ({
             <img
                 src={logoImage}
                 alt="Brand Logo"
-                className="w-full h-full object-contain p-1"
+                className="w-full h-full object-contain p-2"
             />
         </div>
     );

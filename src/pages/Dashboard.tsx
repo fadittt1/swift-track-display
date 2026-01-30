@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { 
-  User, Car, MapPin, Bell, Settings, LogOut, 
+import {
+  User, Car, MapPin, Bell, Settings, LogOut,
   Menu, X, Home, Building2, Phone, MapPinned,
   Save, Loader2, CheckCircle
 } from 'lucide-react';
@@ -20,11 +20,11 @@ const Dashboard = () => {
   const { profile, loading: profileLoading, updateProfile } = useProfile();
   const { toast } = useToast();
   const navigate = useNavigate();
-  
+
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [saving, setSaving] = useState(false);
-  
+
   const [formData, setFormData] = useState({
     company_name: '',
     contact_name: '',
@@ -33,18 +33,17 @@ const Dashboard = () => {
     vehicle_count: 0
   });
 
-  // Initialize form when profile loads
-  useState(() => {
-    if (profile) {
+  useEffect(() => {
+    if (profile && !isEditing) {
       setFormData({
         company_name: profile.company_name || '',
         contact_name: profile.contact_name || '',
         phone: profile.phone || '',
         address: profile.address || '',
-        vehicle_count: profile.vehicle_count || 0
+        vehicle_count: profile.vehicle_count ?? 0
       });
     }
-  });
+  }, [profile, isEditing]);
 
   const handleLogout = async () => {
     await signOut();
@@ -55,7 +54,7 @@ const Dashboard = () => {
     setSaving(true);
     const { error } = await updateProfile(formData);
     setSaving(false);
-    
+
     if (error) {
       toast({
         title: "Erreur",
@@ -125,11 +124,10 @@ const Dashboard = () => {
             {navItems.map((item) => (
               <button
                 key={item.label}
-                className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-colors ${
-                  item.active 
-                    ? 'bg-accent text-white' 
+                className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-colors ${item.active
+                    ? 'bg-accent text-white'
                     : 'text-muted-foreground hover:bg-muted hover:text-foreground'
-                }`}
+                  }`}
               >
                 <item.icon className="w-5 h-5" />
                 {item.label}

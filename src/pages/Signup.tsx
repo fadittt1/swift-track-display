@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Mail, Lock, Eye, EyeOff, Loader2, AlertCircle, CheckCircle, Navigation, User } from 'lucide-react';
+import { Mail, Lock, Eye, EyeOff, Loader2, AlertCircle, Navigation, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -15,7 +15,6 @@ const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [success, setSuccess] = useState(false);
 
   const { signUp } = useAuth();
   const navigate = useNavigate();
@@ -40,43 +39,16 @@ const Signup = () => {
 
     if (error) {
       setError(
-        error.message.includes('already registered')
+        error.message.includes('already registered') || error.message.includes('registered')
           ? 'Cette adresse email est déjà utilisée'
           : 'Une erreur est survenue. Veuillez réessayer.'
       );
       setLoading(false);
     } else {
-      setSuccess(true);
       setLoading(false);
+      navigate('/dashboard', { replace: true });
     }
   };
-
-  if (success) {
-    return (
-      <div className="min-h-screen flex items-center justify-center p-8 bg-background">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
-          className="w-full max-w-md text-center"
-        >
-          <div className="w-20 h-20 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-6">
-            <CheckCircle className="w-10 h-10 text-accent" />
-          </div>
-          <h1 className="text-2xl font-display font-bold text-foreground mb-4">
-            Vérifiez votre email
-          </h1>
-          <p className="text-muted-foreground mb-8">
-            Un email de confirmation a été envoyé à <strong className="text-foreground">{email}</strong>. 
-            Cliquez sur le lien dans l'email pour activer votre compte.
-          </p>
-          <Button onClick={() => navigate('/login')} className="btn-accent">
-            Retour à la connexion
-          </Button>
-        </motion.div>
-      </div>
-    );
-  }
 
   return (
     <div className="min-h-screen flex">

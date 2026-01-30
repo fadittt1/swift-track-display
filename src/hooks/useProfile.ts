@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import { supabase } from '@/integrations/supabase/client';
+import { profilesApi, type ApiProfile } from '@/lib/api';
 import { useAuth } from '@/contexts/AuthContext';
 
-interface Profile {
+export interface Profile {
   id: string;
   user_id: string;
   company_name: string | null;
@@ -12,6 +12,20 @@ interface Profile {
   vehicle_count: number | null;
   created_at: string;
   updated_at: string;
+}
+
+function toProfile(api: ApiProfile): Profile {
+  return {
+    id: api.id,
+    user_id: api.user_id,
+    company_name: api.company_name ?? null,
+    contact_name: api.contact_name ?? null,
+    phone: api.phone ?? null,
+    address: api.address ?? null,
+    vehicle_count: api.vehicle_count ?? null,
+    created_at: api.created_at,
+    updated_at: api.updated_at,
+  };
 }
 
 export const useProfile = () => {
@@ -29,35 +43,32 @@ export const useProfile = () => {
 
     try {
       setLoading(true);
-      const { data, error } = await supabase
-        .from('profiles')
-        .select('*')
-        .eq('user_id', user.id)
-        .single();
-
-      if (error) throw error;
-      setProfile(data);
-    } catch (err: any) {
-      setError(err.message);
+      const { data, error: err } = await profilesApi.getMe();
+      if (err) throw new Error(err);
+      setProfile(data ? toProfile(data) : null);
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'Failed to load profile');
     } finally {
       setLoading(false);
     }
   };
 
-  const updateProfile = async (updates: Partial<Omit<Profile, 'id' | 'user_id' | 'created_at' | 'updated_at'>>) => {
+  const updateProfile = async (
+    updates: Partial<
+      Omit<Profile, 'id' | 'user_id' | 'created_at' | 'updated_at'>
+    >
+  ): Promise<{ error: string | null }> => {
     if (!user) return { error: 'Not authenticated' };
 
     try {
-      const { error } = await supabase
-        .from('profiles')
-        .update(updates)
-        .eq('user_id', user.id);
-
-      if (error) throw error;
+      const { error: err } = await profilesApi.updateMe(updates);
+      if (err) return { error: err };
       await fetchProfile();
       return { error: null };
-    } catch (err: any) {
-      return { error: err.message };
+    } catch (err: unknown) {
+      return {
+        error: err instanceof Error ? err.message : 'Failed to update profile',
+      };
     }
   };
 

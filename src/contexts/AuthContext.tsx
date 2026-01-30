@@ -1,6 +1,14 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { User, Session } from '@supabase/supabase-js';
-import { supabase } from '@/integrations/supabase/client';
+import { authApi, type ApiUser } from '@/lib/api';
+
+export interface User {
+  id: string;
+  email: string;
+}
+
+export interface Session {
+  user: User;
+}
 
 interface AuthContextType {
   user: User | null;
@@ -21,55 +29,62 @@ export const useAuth = () => {
   return context;
 };
 
+function toUser(api: ApiUser): User {
+  return { id: api.id, email: api.email };
+}
+
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
   const [session, setSession] = useState<Session | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Set up auth state listener FIRST
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      async (event, session) => {
-        setSession(session);
-        setUser(session?.user ?? null);
-        setLoading(false);
+    authApi.me().then(({ user: me }) => {
+      if (me) {
+        const u = toUser(me);
+        setUser(u);
+        setSession({ user: u });
+      } else {
+        setUser(null);
+        setSession(null);
       }
-    );
-
-    // THEN check for existing session
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setSession(session);
-      setUser(session?.user ?? null);
       setLoading(false);
     });
-
-    return () => subscription.unsubscribe();
   }, []);
 
   const signUp = async (email: string, password: string) => {
-    const { error } = await supabase.auth.signUp({
-      email,
-      password,
-      options: {
-        emailRedirectTo: window.location.origin
+    const result = await authApi.register(email, password);
+    if (!result.error && authApi.getToken()) {
+      const { user: me } = await authApi.me();
+      if (me) {
+        const u = toUser(me);
+        setUser(u);
+        setSession({ user: u });
       }
-    });
-    return { error };
+    }
+    return result;
   };
 
   const signIn = async (email: string, password: string) => {
-    const { error } = await supabase.auth.signInWithPassword({
-      email,
-      password,
-    });
-    return { error };
+    const result = await authApi.login(email, password);
+    if (!result.error) {
+      const { user: me } = await authApi.me();
+      if (me) {
+        const u = toUser(me);
+        setUser(u);
+        setSession({ user: u });
+      }
+    }
+    return result;
   };
 
   const signOut = async () => {
-    await supabase.auth.signOut();
+    authApi.logout();
+    setUser(null);
+    setSession(null);
   };
 
-  const value = {
+  const value: AuthContextType = {
     user,
     session,
     loading,

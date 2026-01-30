@@ -9,10 +9,8 @@ import { useAuth } from '@/contexts/AuthContext';
 const navItems = [
     { name: 'Accueil', href: '#hero' },
     { name: 'Services', href: '#services' },
-    { name: 'Fonctionnalités', href: '#features' },
     { name: 'Produits', href: '#products' },
     { name: 'À Propos', href: '#stats' },
-    { name: 'Témoignages', href: '#testimonials' },
     { name: 'Contact', href: '#contact' },
 ];
 
@@ -53,12 +51,12 @@ export const Header = () => {
                         <a
                             href="#hero"
                             onClick={(e) => { e.preventDefault(); scrollToSection('#hero'); }}
-                            className="flex items-center gap-2 group"
+                            className="flex items-center gap-4 group"
                         >
                             <div className="flex items-center justify-center">
                                 <Logo size="md" />
                             </div>
-                            <span className={`font-display font-bold text-xl tracking-tight transition-colors ${isScrolled ? 'text-foreground' : 'text-white'
+                            <span className={`font-display font-bold text-xl tracking-wide transition-colors ${isScrolled ? 'text-foreground' : 'text-white'
                                 }`}>
                                 VIEW <span className="text-accent underline decoration-orange-400 decoration-2 underline-offset-4">TRACK</span> SOLUTION
                             </span>
