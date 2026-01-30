@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Navigation, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Logo } from '@/components/ui/Logo';
 
 const navItems = [
     { name: 'Accueil', href: '#hero' },
@@ -50,8 +51,8 @@ export const Header = () => {
                             onClick={(e) => { e.preventDefault(); scrollToSection('#hero'); }}
                             className="flex items-center gap-2 group"
                         >
-                            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#11141E] to-[#1E7FA6] flex items-center justify-center shadow-glow-blue border border-white/10">
-                                <Navigation className="w-5 h-5 text-white rotate-45" />
+                            <div className="flex items-center justify-center">
+                                <Logo size="md" />
                             </div>
                             <span className={`font-display font-bold text-xl tracking-tight transition-colors ${isScrolled ? 'text-foreground' : 'text-white'
                                 }`}>

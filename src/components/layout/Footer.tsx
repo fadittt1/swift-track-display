@@ -1,6 +1,7 @@
 import { Navigation, Phone, Mail, Facebook, Twitter, Linkedin, Instagram, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { Logo } from '@/components/ui/Logo';
 
 const footerLinks = {
   services: [
@@ -59,9 +60,7 @@ export const Footer = () => {
           {/* Brand */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2 mb-6">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#11141E] to-[#1E7FA6] flex items-center justify-center border border-white/10">
-                <Navigation className="w-5 h-5 text-white rotate-45" />
-              </div>
+              <Logo size="md" />
               <span className="font-display font-bold text-xl text-white">
                 VIEW TRACK SOLUTION
               </span>
