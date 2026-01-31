@@ -7,7 +7,8 @@
         "testimonials": "آراء العملاء",
         "contact": "اتصل بنا",
         "login": "تسجيل الدخول",
-        "dashboard": "لوحة التحكم"
+        "dashboard": "لوحة التحكم",
+        "mySpace": "مساحتي"
     },
     "hero": {
         "badge": "الرائد في حلول GPS منذ عام 2014",
@@ -15,7 +16,7 @@
         "titleAccent": "في الوقت الفعلي",
         "subtitle": "مراقبة الأسطول والأمن، تابع بدقة!",
         "ctaDemo": "طلب عرض تجريبي",
-        "ctaServices": "اكتشف خدماتنا"
+        "ctaServices": "اكتشف Protrack365"
     },
     "services": {
         "badge": "خدماتنا",
@@ -211,6 +212,7 @@
     "footer": {
         "newsletter": {
             "title": "ابقَ على اطلاع",
+            "subtitle": "تابع بدقة!",
             "placeholder": "بريدك الإلكتروني",
             "submit": "اشترك"
         },

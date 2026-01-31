@@ -38,7 +38,7 @@ export const Footer = () => {
                 {t('footer.newsletter.title')}
               </h3>
               <p className="text-white/70 italic">
-                Flow closely !
+                {t('footer.newsletter.subtitle')}
               </p>
             </div>
             <div className="flex w-full lg:w-auto gap-3">

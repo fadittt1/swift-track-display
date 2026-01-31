@@ -90,7 +90,7 @@ export const Header = () => {
                                     className="btn-accent"
                                 >
                                     <User className="w-4 h-4 mr-2" />
-                                    Mon Espace
+                                    {t('nav.mySpace')}
                                 </Button>
                             ) : (
                                 <>
@@ -171,7 +171,7 @@ export const Header = () => {
                                             className="btn-accent w-full"
                                         >
                                             <User className="w-4 h-4 mr-2" />
-                                            Mon Espace Client
+                                            {t('nav.mySpace')}
                                         </Button>
                                     ) : (
                                         <>

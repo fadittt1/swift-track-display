@@ -7,15 +7,16 @@
         "testimonials": "Témoignages",
         "contact": "Contact",
         "login": "Connexion",
-        "dashboard": "Tableau de bord"
+        "dashboard": "Tableau de bord",
+        "mySpace": "Mon Espace"
     },
     "hero": {
         "badge": "Leader en solutions GPS depuis 2014",
-        "title": "Suivez vos véhicules ",
-        "titleAccent": "en temps réel",
-        "subtitle": "Surveillance de flotte et sécurité, suivez de près !",
+        "title": "Suivez Vos Véhicules ",
+        "titleAccent": "en Temps Réel",
+        "subtitle": "Fleet monitoring & Security , Flow closly !",
         "ctaDemo": "Demander une Démo",
-        "ctaServices": "Découvrir Nos Services"
+        "ctaServices": "Découvrir Protrack365"
     },
     "services": {
         "badge": "Nos Services",
@@ -211,6 +212,7 @@
     "footer": {
         "newsletter": {
             "title": "Restez Informé",
+            "subtitle": "Suivez de près !",
             "placeholder": "Votre email",
             "submit": "S'abonner"
         },
