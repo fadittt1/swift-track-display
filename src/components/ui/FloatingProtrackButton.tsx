@@ -42,12 +42,7 @@ export const FloatingProtrackButton = () => {
   }, []);
 
   const handleClick = () => {
-    if (user) {
-      window.open('https://www.Protrack365.com', '_blank');
-    } else {
-      toast.error('Veuillez vous connecter pour accéder à Protrack365');
-      navigate('/login');
-    }
+    window.open('https://www.Protrack365.com', '_blank');
   };
 
   return (
