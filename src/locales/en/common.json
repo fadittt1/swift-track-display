@@ -16,7 +16,7 @@
         "titleAccent": "in Real Time",
         "subtitle": "Fleet monitoring & Security, stay close to your flow!",
         "ctaDemo": "Request a Demo",
-        "ctaServices": "Explore Protrack365"
+        "ctaServices": "Explore Our Website"
     },
     "services": {
         "badge": "Our Services",
@@ -291,5 +291,14 @@
                 "desc": "Create your account in seconds and start tracking your fleet in real-time today."
             }
         }
+    },
+    "floatingButton": {
+        "cta": "Client Space",
+        "messages": [
+            "Monitor your fleet in real-time",
+            "Access Our Website",
+            "Advanced GPS tracking solutions",
+            "Manage your assets efficiently"
+        ]
     }
 }

@@ -11,12 +11,12 @@
         "mySpace": "Mon Espace"
     },
     "hero": {
-        "badge": "Leader en solutions GPS depuis 2014",
+        "badge": "Leader en solutions GPS",
         "title": "Suivez Vos Véhicules ",
         "titleAccent": "en Temps Réel",
         "subtitle": "Fleet monitoring & Security , Flow closly !",
         "ctaDemo": "Demander une Démo",
-        "ctaServices": "Découvrir Protrack365"
+        "ctaServices": "Découvrir Notre Site"
     },
     "services": {
         "badge": "Nos Services",
@@ -291,5 +291,14 @@
                 "desc": "Créez votre compte en quelques secondes et commencez à suivre votre flotte en temps réel dès aujourd'hui."
             }
         }
+    },
+    "floatingButton": {
+        "cta": "Espace Client",
+        "messages": [
+            "Surveillez votre flotte en temps réel",
+            "Accédez à notre site web",
+            "Solutions de suivi GPS avancées",
+            "Gérez vos actifs efficacement"
+        ]
     }
 }

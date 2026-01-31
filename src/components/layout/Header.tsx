@@ -95,7 +95,7 @@ export const Header = () => {
                             ) : (
                                 <>
                                     <Button
-                                        onClick={() => navigate('/login')}
+                                        onClick={() => window.open('https://www.Protrack365.com', '_blank')}
                                         variant="ghost"
                                         className={isScrolled ? 'text-foreground hover:bg-muted' : 'text-white hover:bg-white/10'}
                                     >
@@ -176,7 +176,7 @@ export const Header = () => {
                                     ) : (
                                         <>
                                             <Button
-                                                onClick={() => { setIsMobileMenuOpen(false); navigate('/login'); }}
+                                                onClick={() => { setIsMobileMenuOpen(false); window.open('https://www.Protrack365.com', '_blank'); }}
                                                 variant="outline"
                                                 className="w-full"
                                             >

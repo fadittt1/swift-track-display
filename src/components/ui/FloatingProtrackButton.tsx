@@ -5,19 +5,16 @@ import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-
-const messages = [
-  "Monitor your fleet in real-time",
-  "Access the Protrack365 dashboard",
-  "Advanced GPS tracking solutions",
-  "Manage your assets efficiently",
-];
+import { useTranslation } from 'react-i18next';
 
 export const FloatingProtrackButton = () => {
   const { user } = useAuth();
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const [showMessage, setShowMessage] = useState(false);
   const [currentMessage, setCurrentMessage] = useState(0);
+
+  const messages = t('floatingButton.messages', { returnObjects: true }) as string[];
 
   useEffect(() => {
     // Show message every 12 seconds for a more professional presence
@@ -39,7 +36,7 @@ export const FloatingProtrackButton = () => {
       clearInterval(interval);
       clearTimeout(initialTimeout);
     };
-  }, []);
+  }, [messages.length]);
 
   const handleClick = () => {
     window.open('https://www.Protrack365.com', '_blank');
@@ -81,7 +78,7 @@ export const FloatingProtrackButton = () => {
           size="lg"
         >
           <ExternalLink className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" />
-          <span className="font-semibold">Protrack365</span>
+          <span className="font-semibold">{t('floatingButton.cta')}</span>
         </Button>
       </motion.div>
     </div>
