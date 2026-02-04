@@ -4,46 +4,6 @@ import { motion } from 'framer-motion';
 import { Car, User, Dog, CheckCircle, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
-import { ProductsShowcase } from '@/components/sections/ProductsShowcase';
-import { Product } from '@/components/ui/ProductCard';
-
-const gpsProducts: Product[] = [
-    {
-        id: 'gps-pet-dog',
-        name: 'GPS pour chien PET PRO',
-        image: '/gps-pet-dog.png',
-        category: 'GPS Animaux',
-        tags: ['GPS', 'PERSO']
-    },
-    {
-        id: 'gps-pet-cat',
-        name: 'GPS pour chat PET MINI',
-        image: '/gps-pet-cat.png',
-        category: 'GPS Animaux',
-        tags: ['GPS', 'PERSO']
-    },
-    {
-        id: 'gps-elder',
-        name: 'GPS pour enfants | GPS KIDS TRACK',
-        image: '/gps-elder.png',
-        category: 'GPS Personnes',
-        tags: ['GPS', 'PERSO']
-    },
-    {
-        id: 'gps-marine',
-        name: 'GPS pour les bateaux | GPS MARINE PRO',
-        image: '/gps-marine.png',
-        category: 'GPS Marine',
-        tags: ['BATEAU', 'GPS']
-    },
-    {
-        id: 'gps-transport',
-        name: 'GPS Véhicule | TRANSPORT PRO',
-        image: '/gps-transport-pro.png',
-        category: 'GPS Véhicules',
-        tags: ['VÉHICULE', 'GPS']
-    },
-];
 
 const SolutionsGps = () => {
     const navigate = useNavigate();
@@ -162,14 +122,6 @@ const SolutionsGps = () => {
                     </motion.div>
                 ))}
             </main>
-
-            {/* Products Showcase */}
-            <ProductsShowcase
-                title="Nos Produits GPS"
-                subtitle="Découvrez notre gamme"
-                products={gpsProducts}
-                accentColor="text-blue-500"
-            />
 
             {/* CTA Section */}
             <div className="bg-[#0A1628] py-20 text-center">

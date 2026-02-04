@@ -4,32 +4,6 @@ import { motion } from 'framer-motion';
 import { Video, ShieldCheck, Home, CheckCircle, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
-import { ProductsShowcase } from '@/components/sections/ProductsShowcase';
-import { Product } from '@/components/ui/ProductCard';
-
-const securityProducts: Product[] = [
-    {
-        id: 'camera-outdoor',
-        name: 'Caméra Extérieure HD Pro',
-        image: '/gps-transport-pro.png',
-        category: 'Vidéosurveillance',
-        tags: ['CAMÉRA', 'OUTDOOR']
-    },
-    {
-        id: 'alarm-system',
-        name: 'Système Alarme Connecté',
-        image: '/gps-elder.png',
-        category: 'Alarme',
-        tags: ['ALARME', 'SMART']
-    },
-    {
-        id: 'smart-lock',
-        name: 'Serrure Intelligente Biométrique',
-        image: '/gps-marine.png',
-        category: 'Domotique',
-        tags: ['DOMOTIQUE', 'SÉCURITÉ']
-    },
-];
 
 const SecurityDomotics = () => {
     const navigate = useNavigate();
@@ -148,14 +122,6 @@ const SecurityDomotics = () => {
                     </motion.div>
                 ))}
             </main>
-
-            {/* Products Showcase */}
-            <ProductsShowcase
-                title="Nos Produits Sécurité"
-                subtitle="Protégez votre maison"
-                products={securityProducts}
-                accentColor="text-purple-500"
-            />
 
             {/* CTA Section */}
             <div className="bg-[#0A1628] py-20 text-center">

@@ -4,32 +4,6 @@ import { motion } from 'framer-motion';
 import { Building2, Truck, Network, CheckCircle, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
-import { ProductsShowcase } from '@/components/sections/ProductsShowcase';
-import { Product } from '@/components/ui/ProductCard';
-
-const enterpriseProducts: Product[] = [
-    {
-        id: 'fleet-tracker',
-        name: 'GPS Flotte Véhicules PRO',
-        image: '/gps-transport-pro.png',
-        category: 'Gestion de Flotte',
-        tags: ['FLOTTE', 'PRO']
-    },
-    {
-        id: 'asset-tracker',
-        name: 'Traceur Actifs Industriels',
-        image: '/gps-marine.png',
-        category: 'Asset Tracking',
-        tags: ['INDUSTRIEL', 'GPS']
-    },
-    {
-        id: 'personnel-tracker',
-        name: 'Badge GPS Personnel',
-        image: '/gps-elder.png',
-        category: 'Sécurité Personnel',
-        tags: ['PERSONNEL', 'SÉCURITÉ']
-    },
-];
 
 const Enterprise = () => {
     const navigate = useNavigate();
@@ -150,14 +124,6 @@ const Enterprise = () => {
                     </motion.div>
                 ))}
             </main>
-
-            {/* Products Showcase */}
-            <ProductsShowcase
-                title="Nos Solutions Entreprises"
-                subtitle="Pour les professionnels"
-                products={enterpriseProducts}
-                accentColor="text-violet-600"
-            />
 
             {/* CTA Section */}
             <div className="bg-[#0A1628] py-20 text-center">
