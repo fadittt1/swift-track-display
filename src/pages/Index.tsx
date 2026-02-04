@@ -14,8 +14,8 @@ const Index = () => {
       <Header />
       <main>
         <Hero />
+        <Services /> {/* Keeps the new Services with links to new pages */}
         <Products />
-        <Services />
         <Features />
         <Stats />
         <Testimonials />

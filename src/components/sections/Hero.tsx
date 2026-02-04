@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Play, ExternalLink } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import heroPattern from '@/assets/hero-pattern-nano.png';
@@ -9,19 +10,10 @@ const floatingIcons = [
 
 export const Hero = () => {
     const { t } = useTranslation();
-    const scrollToContact = () => {
-        const element = document.querySelector('#contact');
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
-        }
-    };
+    const navigate = useNavigate();
 
-    const scrollToServices = () => {
-        const element = document.querySelector('#services');
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
-        }
-    };
+
+
 
     return (
         <section
@@ -79,10 +71,7 @@ export const Hero = () => {
                         transition={{ duration: 0.6, delay: 0.1 }}
                         className="text-4xl md:text-5xl lg:text-7xl font-display font-bold text-white mb-6 leading-tight"
                     >
-                        {t('hero.title')}{' '}
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 drop-shadow-[0_0_15px_rgba(34,211,238,0.3)]">
-                            {t('hero.titleAccent')}
-                        </span>
+                        VIEW TRACK <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 drop-shadow-[0_0_15px_rgba(34,211,238,0.3)]">SOLUTION</span>
                     </motion.h1>
 
                     {/* Subtitle */}
@@ -92,7 +81,7 @@ export const Hero = () => {
                         transition={{ duration: 0.6, delay: 0.2 }}
                         className="text-lg md:text-xl text-white/70 mb-10 max-w-2xl mx-auto leading-relaxed"
                     >
-                        {t('hero.subtitle')}
+                        Votre partenaire expert en géolocalisation et sécurité intelligente pour particuliers et entreprises.
                     </motion.p>
 
                     {/* CTA Buttons */}
@@ -103,19 +92,19 @@ export const Hero = () => {
                         className="flex flex-col sm:flex-row items-center justify-center gap-6"
                     >
                         <Button
-                            onClick={scrollToContact}
+                            onClick={() => navigate('/contact')}
                             className="bg-gradient-to-r from-[#1C5F88] to-[#1E7FA6] hover:from-[#1E7FA6] hover:to-[#1C5F88] text-white text-lg px-10 py-7 rounded-2xl group transition-all duration-300 shadow-lg shadow-cyan-900/40"
                         >
-                            {t('hero.ctaDemo')}
+                            Contactez-nous
                             <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
                         </Button>
                         <Button
-                            onClick={() => window.open('https://www.Protrack365.com', '_blank')}
+                            onClick={() => navigate('/solutions-gps')}
                             variant="ghost"
                             className="border-2 border-white/20 text-white hover:bg-white/10 text-lg px-10 py-7 rounded-2xl group transition-all duration-300 backdrop-blur-sm"
                         >
-                            <ExternalLink className="mr-2 w-5 h-5 transition-transform group-hover:rotate-12" />
-                            {t('hero.ctaServices')}
+                            Découvrir nos solutions
+                            <ExternalLink className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
                         </Button>
                     </motion.div>
 

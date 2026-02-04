@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, User, LogIn } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Logo } from '@/components/ui/Logo';
 import { useAuth } from '@/contexts/AuthContext';
@@ -9,11 +9,10 @@ import { useTranslation } from 'react-i18next';
 import { LanguageSwitcher } from './LanguageSwitcher';
 
 const navItems = [
-    { name: 'nav.home', href: '#hero' },
-    { name: 'nav.services', href: '#services' },
-    { name: 'nav.products', href: '#products' },
-    { name: 'nav.stats', href: '#stats' },
-    { name: 'nav.contact', href: '#contact' },
+    { name: 'Accueil', href: '/', type: 'route' },
+    { name: 'Nos Solutions', href: '/#services', type: 'scroll' },
+    { name: 'Entreprises', href: '/enterprise', type: 'route' },
+    { name: 'Contact', href: '/#contact', type: 'scroll' },
 ];
 
 export const Header = () => {
@@ -22,6 +21,7 @@ export const Header = () => {
     const { t } = useTranslation();
     const { user } = useAuth();
     const navigate = useNavigate();
+    const location = useLocation(); // Need to import useLocation
 
     useEffect(() => {
         const handleScroll = () => {
@@ -31,12 +31,34 @@ export const Header = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    const scrollToSection = (href: string) => {
-        const element = document.querySelector(href);
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
-        }
+    const handleNavigation = (href: string, type: string) => {
         setIsMobileMenuOpen(false);
+
+        if (type === 'scroll') {
+            // Extract the ID from the href (e.g., "/#services" -> "#services")
+            const targetId = href.replace('/', '');
+
+            // If we are already on the homepage, scroll
+            if (location.pathname === '/' || location.pathname === '') {
+                const element = document.querySelector(targetId);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }
+            } else {
+                // Should navigate to Home then scroll (simplification: just navigate to anchor)
+                // React Router doesn't handle hash scrolling automatically on navigation well without extra setup
+                // But this is a decent fallback
+                navigate('/');
+                setTimeout(() => {
+                    const element = document.querySelector(targetId);
+                    if (element) {
+                        element.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }, 100);
+            }
+        } else {
+            navigate(href);
+        }
     };
 
     return (
@@ -52,14 +74,14 @@ export const Header = () => {
                     <div className="flex items-center justify-between h-20">
                         {/* Logo */}
                         <a
-                            href="#hero"
-                            onClick={(e) => { e.preventDefault(); scrollToSection('#hero'); }}
+                            href="/"
+                            onClick={(e) => { e.preventDefault(); handleNavigation('/', 'scroll'); }}
                             className="flex items-center gap-4 group"
                         >
                             <div className="flex items-center justify-center">
                                 <Logo size="md" />
                             </div>
-                            <span className={`font-display font-bold text-xl tracking-wide transition-colors ${isScrolled ? 'text-foreground' : 'text-white'
+                            <span className={`font-display font-bold text-lg tracking-wide transition-colors whitespace-nowrap ${isScrolled ? 'text-foreground' : 'text-white'
                                 }`}>
                                 VIEW <span className="text-accent underline decoration-orange-400 decoration-2 underline-offset-4">TRACK</span> SOLUTION
                             </span>
@@ -68,15 +90,14 @@ export const Header = () => {
                         {/* Desktop Navigation */}
                         <nav className="hidden lg:flex items-center gap-8">
                             {navItems.map((item) => (
-                                <a
+                                <button
                                     key={item.name}
-                                    href={item.href}
-                                    onClick={(e) => { e.preventDefault(); scrollToSection(item.href); }}
+                                    onClick={(e) => { e.preventDefault(); handleNavigation(item.href, item.type); }}
                                     className={`text-sm font-medium transition-colors hover:text-accent ${isScrolled ? 'text-foreground/80' : 'text-white/90'
                                         }`}
                                 >
-                                    {t(item.name)}
-                                </a>
+                                    {item.name}
+                                </button>
                             ))}
                         </nav>
 
@@ -103,7 +124,7 @@ export const Header = () => {
                                         {t('nav.login')}
                                     </Button>
                                     <Button
-                                        onClick={() => scrollToSection('#contact')}
+                                        onClick={() => handleNavigation('/#contact', 'scroll')}
                                         className="btn-accent"
                                     >
                                         {t('hero.ctaDemo')}
@@ -148,17 +169,16 @@ export const Header = () => {
                             <div className="p-6 pt-24">
                                 <div className="flex flex-col gap-2">
                                     {navItems.map((item, index) => (
-                                        <motion.a
+                                        <motion.button
                                             key={item.name}
-                                            href={item.href}
-                                            onClick={(e) => { e.preventDefault(); scrollToSection(item.href); }}
+                                            onClick={(e) => { e.preventDefault(); handleNavigation(item.href, item.type); }}
                                             initial={{ opacity: 0, x: 20 }}
                                             animate={{ opacity: 1, x: 0 }}
                                             transition={{ delay: index * 0.05 }}
-                                            className="px-4 py-3 rounded-xl text-foreground font-medium hover:bg-muted transition-colors text-right"
+                                            className="px-4 py-3 rounded-xl text-foreground font-medium hover:bg-muted transition-colors text-right w-full"
                                         >
-                                            {t(item.name)}
-                                        </motion.a>
+                                            {item.name}
+                                        </motion.button>
                                     ))}
                                 </div>
                                 <div className="mt-6 pt-6 border-t border-border space-y-4">
@@ -184,7 +204,7 @@ export const Header = () => {
                                                 {t('nav.login')}
                                             </Button>
                                             <Button
-                                                onClick={() => scrollToSection('#contact')}
+                                                onClick={() => handleNavigation('/#contact', 'scroll')}
                                                 className="btn-accent w-full"
                                             >
                                                 {t('hero.ctaDemo')}

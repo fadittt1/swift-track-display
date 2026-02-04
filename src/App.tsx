@@ -11,6 +11,12 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
 import NotFound from "./pages/NotFound";
+import SolutionsGps from "./pages/SolutionsGps";
+import SecurityDomotics from "./pages/SecurityDomotics";
+import Enterprise from "./pages/Enterprise";
+import Shop from "./pages/Shop";
+import Support from "./pages/Support";
+import ContactPage from "./pages/ContactPage";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +30,12 @@ const App = () => (
           <FloatingProtrackButton />
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/solutions-gps" element={<SolutionsGps />} />
+            <Route path="/security-domotics" element={<SecurityDomotics />} />
+            <Route path="/enterprise" element={<Enterprise />} />
+            <Route path="/shop" element={<Shop />} />
+            <Route path="/support" element={<Support />} />
+            <Route path="/contact" element={<ContactPage />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route
