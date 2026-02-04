@@ -10,7 +10,8 @@ import { LanguageSwitcher } from './LanguageSwitcher';
 
 const navItems = [
     { name: 'Accueil', href: '/', type: 'route' },
-    { name: 'Nos Solutions', href: '/#services', type: 'scroll' },
+    { name: 'GPS', href: '/solutions-gps', type: 'route' },
+    { name: 'Domicile', href: '/security-domotics', type: 'route' },
     { name: 'Entreprises', href: '/enterprise', type: 'route' },
     { name: 'Contact', href: '/#contact', type: 'scroll' },
 ];
@@ -127,7 +128,7 @@ export const Header = () => {
                                         onClick={() => handleNavigation('/#contact', 'scroll')}
                                         className="btn-accent"
                                     >
-                                        {t('hero.ctaDemo')}
+                                        Demander un devis
                                     </Button>
                                 </>
                             )}
@@ -207,7 +208,7 @@ export const Header = () => {
                                                 onClick={() => handleNavigation('/#contact', 'scroll')}
                                                 className="btn-accent w-full"
                                             >
-                                                {t('hero.ctaDemo')}
+                                                Demander un devis
                                             </Button>
                                         </>
                                     )}

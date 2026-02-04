@@ -71,7 +71,7 @@ export const Hero = () => {
                         transition={{ duration: 0.6, delay: 0.1 }}
                         className="text-4xl md:text-5xl lg:text-7xl font-display font-bold text-white mb-6 leading-tight"
                     >
-                        VIEW TRACK <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 drop-shadow-[0_0_15px_rgba(34,211,238,0.3)]">SOLUTION</span>
+                        Solutions GPS & <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 drop-shadow-[0_0_15px_rgba(34,211,238,0.3)]">Sécurité intelligentes</span>
                     </motion.h1>
 
                     {/* Subtitle */}
@@ -81,7 +81,7 @@ export const Hero = () => {
                         transition={{ duration: 0.6, delay: 0.2 }}
                         className="text-lg md:text-xl text-white/70 mb-10 max-w-2xl mx-auto leading-relaxed"
                     >
-                        Votre partenaire expert en géolocalisation et sécurité intelligente pour particuliers et entreprises.
+                        Protégez vos biens, suivez ce qui compte.
                     </motion.p>
 
                     {/* CTA Buttons */}
@@ -92,18 +92,18 @@ export const Hero = () => {
                         className="flex flex-col sm:flex-row items-center justify-center gap-6"
                     >
                         <Button
-                            onClick={() => navigate('/contact')}
+                            onClick={() => navigate('/solutions-gps')}
                             className="bg-gradient-to-r from-[#1C5F88] to-[#1E7FA6] hover:from-[#1E7FA6] hover:to-[#1C5F88] text-white text-lg px-10 py-7 rounded-2xl group transition-all duration-300 shadow-lg shadow-cyan-900/40"
                         >
-                            Contactez-nous
+                            Nos solutions
                             <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
                         </Button>
                         <Button
-                            onClick={() => navigate('/solutions-gps')}
+                            onClick={() => navigate('/contact')}
                             variant="ghost"
                             className="border-2 border-white/20 text-white hover:bg-white/10 text-lg px-10 py-7 rounded-2xl group transition-all duration-300 backdrop-blur-sm"
                         >
-                            Découvrir nos solutions
+                            Contact commercial
                             <ExternalLink className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
                         </Button>
                     </motion.div>

@@ -1,14 +1,33 @@
+import { useState } from 'react';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
-import { motion } from 'framer-motion';
-import { Car, User, Dog, CheckCircle, ArrowRight } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Car, User, Dog, CheckCircle, ArrowRight, ShieldCheck, CreditCard } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
 
+import gpsVehicleBox from '@/assets/gps-vehicle-box.png';
+import gpsVehicleHero from '@/assets/gps-vehicle-hero.png';
+
 const SolutionsGps = () => {
     const navigate = useNavigate();
+    const [activeTab, setActiveTab] = useState('vehicles');
 
-    const sections = [
+    type Section = {
+        id: string;
+        title: string;
+        icon: any;
+        description: string;
+        features: string[];
+        color: string;
+        bg: string;
+        borderColor?: string;
+        heroImage?: string;
+        benefits?: { icon: any; text: string }[];
+        products: { name: string; price: string; image: any }[];
+    };
+
+    const sections: Section[] = [
         {
             id: 'vehicles',
             title: 'GPS Véhicules',
@@ -22,7 +41,19 @@ const SolutionsGps = () => {
                 "Gestion de flotte simplifiée"
             ],
             color: "text-blue-500",
-            bg: "bg-blue-500/10"
+            bg: "bg-blue-500/10",
+            heroImage: gpsVehicleHero,
+            borderColor: "border-blue-500/20",
+            benefits: [
+                { icon: ShieldCheck, text: "Sécurité Antivol" },
+                { icon: CreditCard, text: "Économies Carburant" },
+                { icon: CheckCircle, text: "Maintenance Prédictive" }
+            ],
+            products: [
+                { name: "Traceur OBD-II", price: "À partir de 49€", image: gpsVehicleBox },
+                { name: "Boîtier Magnétique", price: "À partir de 89€", image: gpsVehicleBox },
+                { name: "Traceur Pro Filaire", price: "Sur devis", image: gpsVehicleBox }
+            ]
         },
         {
             id: 'people',
@@ -37,7 +68,18 @@ const SolutionsGps = () => {
                 "Design discret et léger"
             ],
             color: "text-emerald-500",
-            bg: "bg-emerald-500/10"
+            bg: "bg-emerald-500/10",
+            borderColor: "border-emerald-500/20",
+            benefits: [
+                { icon: ShieldCheck, text: "Tranquillité d'esprit" },
+                { icon: CreditCard, text: "Sans engagement" },
+                { icon: CheckCircle, text: "Facile à utiliser" }
+            ],
+            products: [
+                { name: "Montre Connectée SOS", price: "À partir de 69€", image: User },
+                { name: "Pendentif Senior", price: "À partir de 59€", image: User },
+                { name: "Mini Traceur Sac", price: "À partir de 49€", image: User }
+            ]
         },
         {
             id: 'animals',
@@ -52,9 +94,23 @@ const SolutionsGps = () => {
                 "Léger pour chats et chiens"
             ],
             color: "text-orange-500",
-            bg: "bg-orange-500/10"
+            bg: "bg-orange-500/10",
+            borderColor: "border-orange-500/20",
+            benefits: [
+                { icon: ShieldCheck, text: "Retrouvailles Rapides" },
+                { icon: CreditCard, text: "Abonnement Flexible" },
+                { icon: CheckCircle, text: "Résistant à l'eau" }
+            ],
+            products: [
+                { name: "Collier Chien Robuste", price: "À partir de 79€", image: Dog },
+                { name: "Collier Chat Léger", price: "À partir de 69€", image: Dog },
+                { name: "Module Universel", price: "À partir de 59€", image: Dog }
+            ]
         }
     ];
+
+
+    const activeSection = sections.find(s => s.id === activeTab) || sections[0];
 
     return (
         <div className="min-h-screen flex flex-col bg-background">
@@ -71,68 +127,158 @@ const SolutionsGps = () => {
                         Solutions <span className="text-gradient">GPS</span>
                     </motion.h1>
                     <p className="text-xl text-white/70 max-w-2xl mx-auto">
-                        Une gamme complète de traceurs pour garder un œil sur ce qui compte vraiment pour vous.
+                        Choisissez la solution de tracking adaptée à vos besoins.
                     </p>
                 </div>
             </div>
 
-            <main className="flex-grow container-custom py-16 space-y-24">
-                {sections.map((section, index) => (
-                    <motion.div
-                        key={section.id}
-                        initial={{ opacity: 0, y: 40 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5, delay: index * 0.1 }}
-                        className="flex flex-col md:flex-row gap-12 items-center"
-                    >
-                        <div className={`flex-1 ${index % 2 === 1 ? 'md:order-2' : ''}`}>
-                            <div className={`w-20 h-20 rounded-2xl ${section.bg} flex items-center justify-center mb-6`}>
-                                <section.icon className={`w-10 h-10 ${section.color}`} />
-                            </div>
-                            <h2 className="text-3xl font-bold font-display mb-4">{section.title}</h2>
-                            <p className="text-lg text-muted-foreground mb-8">
-                                {section.description}
-                            </p>
-                            <ul className="space-y-4 mb-8">
-                                {section.features.map((feature, idx) => (
-                                    <li key={idx} className="flex items-center gap-3">
-                                        <CheckCircle className={`w-5 h-5 ${section.color}`} />
-                                        <span>{feature}</span>
-                                    </li>
-                                ))}
-                            </ul>
-                            <Button
-                                onClick={() => navigate('/contact')}
-                                className="btn-accent"
+            <main className="flex-grow container-custom py-16">
+                <div className="flex flex-col lg:flex-row gap-12">
+                    {/* Sidebar Navigation */}
+                    <div className="w-full lg:w-1/4">
+                        <div className="sticky top-24 bg-card border border-border rounded-2xl p-4 space-y-2 shadow-sm">
+                            {sections.map((section) => (
+                                <button
+                                    key={section.id}
+                                    onClick={() => setActiveTab(section.id)}
+                                    className={`w-full flex items-center gap-4 p-4 rounded-xl transition-all duration-200 text-left ${activeTab === section.id
+                                        ? `${section.bg} ${section.color} font-medium ring-1 ring-inset ${section.borderColor}`
+                                        : 'hover:bg-muted text-muted-foreground hover:text-foreground'
+                                        }`}
+                                >
+                                    <section.icon className="w-6 h-6" />
+                                    <span className="text-lg">{section.title}</span>
+                                </button>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Main Content Area */}
+                    <div className="w-full lg:w-3/4">
+                        <AnimatePresence mode="wait">
+                            <motion.div
+                                key={activeTab}
+                                initial={{ opacity: 0, x: 20 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                exit={{ opacity: 0, x: -20 }}
+                                transition={{ duration: 0.3 }}
+                                className="bg-card rounded-3xl border border-border overflow-hidden shadow-sm"
                             >
-                                Demander un devis
-                                <ArrowRight className="w-4 h-4 ml-2" />
-                            </Button>
-                        </div>
-                        <div className={`flex-1 ${index % 2 === 1 ? 'md:order-1' : ''}`}>
-                            <div className="aspect-video bg-muted rounded-3xl border border-border flex items-center justify-center text-muted-foreground">
-                                {/* Placeholders for images */}
-                                <div className="text-center p-8">
-                                    <section.icon className="w-20 h-20 mx-auto mb-4 opacity-20" />
-                                    <p>Image illustrative {section.title}</p>
+                                {/* Hero Image for Section */}
+                                <div className={`aspect-video md:aspect-[21/9] ${activeSection.bg} relative flex items-center justify-center border-b border-border/50 overflow-hidden`}>
+                                    {activeSection.heroImage ? (
+                                        <img
+                                            src={activeSection.heroImage}
+                                            alt={activeSection.title}
+                                            className="w-full h-full object-cover object-center"
+                                        />
+                                    ) : (
+                                        <activeSection.icon className={`w-32 h-32 ${activeSection.color} opacity-20`} />
+                                    )}
+
+                                    <div className="absolute bottom-6 left-6 md:bottom-10 md:left-10 bg-white/90 backdrop-blur-md px-6 py-3 rounded-xl shadow-lg border border-white/20">
+                                        <h2 className={`text-2xl md:text-3xl font-bold ${activeSection.color}`}>
+                                            {activeSection.title}
+                                        </h2>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    </motion.div>
-                ))}
+
+                                <div className="p-8 md:p-12">
+                                    {/* Description & Benefits */}
+                                    <div className="mb-12">
+                                        <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
+                                            {activeSection.description}
+                                        </p>
+
+                                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                            {activeSection.benefits && activeSection.benefits.map((benefit, idx) => (
+                                                <div key={idx} className="flex flex-col items-center text-center p-4 bg-muted/50 rounded-xl border border-border/50">
+                                                    <div className={`w-12 h-12 rounded-full ${activeSection.bg} flex items-center justify-center mb-3`}>
+                                                        <benefit.icon className={`w-6 h-6 ${activeSection.color}`} />
+                                                    </div>
+                                                    <span className="font-semibold text-foreground">{benefit.text}</span>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                    {/* Features List */}
+                                    <div className="mb-12">
+                                        <h3 className="text-xl font-bold mb-6 flex items-center gap-2">
+                                            Fonctionnalités Clés
+                                        </h3>
+                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                            {activeSection.features.map((feature, idx) => (
+                                                <div key={idx} className="flex items-center gap-3 p-3 rounded-lg hover:bg-muted/50 transition-colors">
+                                                    <CheckCircle className={`w-5 h-5 ${activeSection.color} flex-shrink-0`} />
+                                                    <span className="text-foreground/80">{feature}</span>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                    {/* Products Grid (Reusing new card design from previous step) */}
+                                    <div className="mb-12">
+                                        <h3 className="text-xl font-bold mb-6">Produits Recommandés</h3>
+                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                            {activeSection.products.map((product, idx) => (
+                                                <div key={idx} className="bg-white rounded-xl shadow-sm border border-border/50 overflow-hidden hover:shadow-md transition-all group flex flex-col">
+                                                    <div className="aspect-[4/3] bg-muted/30 relative flex items-center justify-center p-6 border-b border-border/50">
+                                                        <div className={`absolute inset-0 bg-gradient-to-br ${activeSection.bg} opacity-50`} />
+
+                                                        {/* Render Logic: Support both Image URL strings and Icon Components */}
+                                                        {typeof product.image === 'string' ? (
+                                                            <img
+                                                                src={product.image}
+                                                                alt={product.name}
+                                                                className="w-full h-full object-contain relative z-10 transition-transform duration-300 group-hover:scale-105"
+                                                            />
+                                                        ) : (
+                                                            <product.image className={`w-16 h-16 ${activeSection.color} relative z-10`} />
+                                                        )}
+
+                                                        <div className="absolute top-3 right-3 z-20">
+                                                            <span className="bg-white/90 backdrop-blur-sm text-xs font-bold px-2 py-1 rounded shadow-sm text-foreground">PRO</span>
+                                                        </div>
+                                                    </div>
+                                                    <div className="p-5 flex flex-col flex-grow">
+                                                        <h4 className="font-bold text-lg text-foreground mb-2 line-clamp-2">{product.name}</h4>
+                                                        <button onClick={() => navigate('/login')} className="text-violet-600 font-medium text-sm mb-3 hover:underline text-left">Login to order</button>
+                                                        <div className="mt-auto">
+                                                            <Button variant="secondary" className="w-full justify-center bg-gray-100 hover:bg-gray-200 text-gray-900 font-medium rounded-lg" onClick={() => navigate('/contact')}>Lire la suite</Button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                    {/* Actions */}
+                                    <div className="flex flex-col sm:flex-row gap-4 pt-8 border-t border-border">
+                                        <Button
+                                            onClick={() => navigate('/contact')}
+                                            className={`flex-1 text-lg py-6 ${activeSection.bg.replace('/10', '')} hover:opacity-90 text-white`}
+                                        >
+                                            Demander un devis
+                                            <ArrowRight className="ml-2 w-5 h-5" />
+                                        </Button>
+                                    </div>
+                                </div>
+                            </motion.div>
+                        </AnimatePresence>
+                    </div>
+                </div>
             </main>
 
             {/* CTA Section */}
             <div className="bg-[#0A1628] py-20 text-center">
                 <div className="container-custom">
-                    <h2 className="text-3xl font-bold text-white mb-8">Besoin d'une solution sur mesure ?</h2>
+                    <h2 className="text-3xl font-bold text-white mb-8">Besoin d'aide pour choisir ?</h2>
                     <Button
                         onClick={() => navigate('/contact')}
-                        className="bg-gradient-to-r from-blue-500 to-cyan-500 text-white text-lg px-8 py-6 rounded-xl hover:shadow-lg transition-all"
+                        className="bg-transparent border-2 border-white/20 text-white text-lg px-8 py-6 rounded-xl hover:bg-white/10 transition-all"
                     >
-                        Contactez notre équipe commerciale
-                        <ArrowRight className="ml-2 w-5 h-5" />
+                        Parler à un conseiller
                     </Button>
                 </div>
             </div>
