@@ -1,10 +1,9 @@
 {
     "nav": {
         "home": "Home",
-        "services": "Services",
-        "products": "Products",
-        "stats": "Stats",
-        "testimonials": "Testimonials",
+        "gps": "GPS",
+        "security": "Security & Domotics",
+        "enterprise": "Enterprise Solutions",
         "contact": "Contact",
         "login": "Login",
         "dashboard": "Dashboard",

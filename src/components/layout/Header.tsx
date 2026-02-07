@@ -9,11 +9,11 @@ import { useTranslation } from 'react-i18next';
 import { LanguageSwitcher } from './LanguageSwitcher';
 
 const navItems = [
-    { name: 'Accueil', href: '/', type: 'route' },
-    { name: 'GPS', href: '/solutions-gps', type: 'route' },
-    { name: 'Domicile', href: '/security-domotics', type: 'route' },
-    { name: 'Entreprises', href: '/enterprise', type: 'route' },
-    { name: 'Contact', href: '/#contact', type: 'scroll' },
+    { name: 'nav.home', href: '/', type: 'route' },
+    { name: 'nav.gps', href: '/solutions-gps', type: 'route' },
+    { name: 'nav.security', href: '/security-domotics', type: 'route' },
+    { name: 'nav.enterprise', href: '/enterprise', type: 'route' },
+    { name: 'nav.contact', href: '/#contact', type: 'scroll' },
 ];
 
 export const Header = () => {
@@ -23,6 +23,7 @@ export const Header = () => {
     const { user } = useAuth();
     const navigate = useNavigate();
     const location = useLocation(); // Need to import useLocation
+    console.log('Header rendered');
 
     useEffect(() => {
         const handleScroll = () => {
@@ -94,10 +95,10 @@ export const Header = () => {
                                 <button
                                     key={item.name}
                                     onClick={(e) => { e.preventDefault(); handleNavigation(item.href, item.type); }}
-                                    className={`text-sm font-semibold transition-all duration-300 hover:text-accent relative group ${isScrolled ? 'text-foreground/80' : 'text-white/90'
+                                    className={`text-sm font-semibold transition-all duration-300 hover:text-accent relative group whitespace-pre-line text-center leading-tight ${isScrolled ? 'text-foreground/80' : 'text-white/90'
                                         }`}
                                 >
-                                    {item.name}
+                                    {t(item.name)}
                                     <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all duration-300 group-hover:w-full"></span>
                                 </button>
                             ))}
@@ -179,7 +180,7 @@ export const Header = () => {
                                             transition={{ delay: index * 0.05 }}
                                             className="px-4 py-3 rounded-xl text-foreground font-medium hover:bg-muted transition-colors text-right w-full"
                                         >
-                                            {item.name}
+                                            {t(item.name)}
                                         </motion.button>
                                     ))}
                                 </div>
