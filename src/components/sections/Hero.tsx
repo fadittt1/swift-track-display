@@ -71,7 +71,7 @@ export const Hero = () => {
                         transition={{ duration: 0.6, delay: 0.1 }}
                         className="text-4xl md:text-5xl lg:text-7xl font-display font-bold text-white mb-6 leading-tight"
                     >
-                        Solutions GPS & <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 drop-shadow-[0_0_15px_rgba(34,211,238,0.3)]">Sécurité intelligentes</span>
+                        VIEW TRACK <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 drop-shadow-[0_0_15px_rgba(34,211,238,0.3)]">SOLUTION</span>
                     </motion.h1>
 
                     {/* Subtitle */}
@@ -81,7 +81,7 @@ export const Hero = () => {
                         transition={{ duration: 0.6, delay: 0.2 }}
                         className="text-lg md:text-xl text-white/70 mb-10 max-w-2xl mx-auto leading-relaxed"
                     >
-                        Protégez vos biens, suivez ce qui compte.
+                        Flow closly !
                     </motion.p>
 
                     {/* CTA Buttons */}

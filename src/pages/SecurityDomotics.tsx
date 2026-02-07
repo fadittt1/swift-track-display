@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Video, ShieldCheck, Home, CheckCircle, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
+import securityCameraHero from '@/assets/security-camera-hero.png';
 
 const SecurityDomotics = () => {
     const navigate = useNavigate();
@@ -22,7 +23,8 @@ const SecurityDomotics = () => {
                 "Accès à distance via smartphone"
             ],
             color: "text-blue-500",
-            bg: "bg-blue-500/10"
+            bg: "bg-blue-500/10",
+            image: securityCameraHero
         },
         {
             id: 'security',
@@ -111,12 +113,20 @@ const SecurityDomotics = () => {
                             </Button>
                         </div>
                         <div className={`flex-1 ${index % 2 === 1 ? 'md:order-1' : ''}`}>
-                            <div className="aspect-video bg-muted rounded-3xl border border-border flex items-center justify-center text-muted-foreground">
-                                {/* Placeholders for images */}
-                                <div className="text-center p-8">
-                                    <section.icon className="w-20 h-20 mx-auto mb-4 opacity-20" />
-                                    <p>Image illustrative {section.title}</p>
-                                </div>
+                            <div className="aspect-video bg-muted rounded-3xl border border-border flex items-center justify-center text-muted-foreground overflow-hidden">
+                                {section.image ? (
+                                    <img
+                                        src={section.image}
+                                        alt={section.title}
+                                        className="w-full h-full object-cover"
+                                    />
+                                ) : (
+                                    /* Placeholders for images */
+                                    <div className="text-center p-8">
+                                        <section.icon className="w-20 h-20 mx-auto mb-4 opacity-20" />
+                                        <p>Image illustrative {section.title}</p>
+                                    </div>
+                                )}
                             </div>
                         </div>
                     </motion.div>

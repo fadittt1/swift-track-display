@@ -8,6 +8,11 @@ import { useNavigate } from 'react-router-dom';
 
 import gpsVehicleBox from '@/assets/gps-vehicle-box.png';
 import gpsVehicleHero from '@/assets/gps-vehicle-hero.png';
+import gpsAnimalBox from '@/assets/gps-animal-box.png';
+import gpsPersonBox from '@/assets/gps-person-box.png';
+import gpsAnimalBoxCat from '@/assets/gps-animal-box-cat.png';
+import gpsAnimalHero from '@/assets/gps-animal-hero.png';
+import gpsPersonHero from '@/assets/gps-person-hero.png';
 
 const SolutionsGps = () => {
     const navigate = useNavigate();
@@ -69,6 +74,7 @@ const SolutionsGps = () => {
             ],
             color: "text-emerald-500",
             bg: "bg-emerald-500/10",
+            heroImage: gpsPersonHero,
             borderColor: "border-emerald-500/20",
             benefits: [
                 { icon: ShieldCheck, text: "Tranquillité d'esprit" },
@@ -76,9 +82,9 @@ const SolutionsGps = () => {
                 { icon: CheckCircle, text: "Facile à utiliser" }
             ],
             products: [
-                { name: "Montre Connectée SOS", price: "À partir de 69€", image: User },
-                { name: "Pendentif Senior", price: "À partir de 59€", image: User },
-                { name: "Mini Traceur Sac", price: "À partir de 49€", image: User }
+                { name: "Montre Connectée SOS", price: "À partir de 69€", image: gpsPersonBox },
+                { name: "Pendentif Senior", price: "À partir de 59€", image: gpsPersonBox },
+                { name: "Mini Traceur Sac", price: "À partir de 49€", image: gpsPersonBox }
             ]
         },
         {
@@ -95,6 +101,7 @@ const SolutionsGps = () => {
             ],
             color: "text-orange-500",
             bg: "bg-orange-500/10",
+            heroImage: gpsAnimalHero,
             borderColor: "border-orange-500/20",
             benefits: [
                 { icon: ShieldCheck, text: "Retrouvailles Rapides" },
@@ -102,9 +109,9 @@ const SolutionsGps = () => {
                 { icon: CheckCircle, text: "Résistant à l'eau" }
             ],
             products: [
-                { name: "Collier Chien Robuste", price: "À partir de 79€", image: Dog },
-                { name: "Collier Chat Léger", price: "À partir de 69€", image: Dog },
-                { name: "Module Universel", price: "À partir de 59€", image: Dog }
+                { name: "Collier Chien Robuste", price: "À partir de 79€", image: gpsAnimalBoxCat },
+                { name: "Collier Chat Léger", price: "À partir de 69€", image: gpsAnimalBoxCat },
+                { name: "Module Universel", price: "À partir de 59€", image: gpsAnimalBoxCat }
             ]
         }
     ];
@@ -176,8 +183,8 @@ const SolutionsGps = () => {
                                         <activeSection.icon className={`w-32 h-32 ${activeSection.color} opacity-20`} />
                                     )}
 
-                                    <div className="absolute bottom-6 left-6 md:bottom-10 md:left-10 bg-white/90 backdrop-blur-md px-6 py-3 rounded-xl shadow-lg border border-white/20">
-                                        <h2 className={`text-2xl md:text-3xl font-bold ${activeSection.color}`}>
+                                    <div className="absolute bottom-6 right-6 md:bottom-10 md:right-10 bg-black/40 backdrop-blur-xl px-8 py-4 rounded-full border border-white/10 shadow-2xl transition-transform hover:scale-105">
+                                        <h2 className="text-xl md:text-2xl font-display font-medium text-white tracking-wide">
                                             {activeSection.title}
                                         </h2>
                                     </div>
@@ -202,6 +209,59 @@ const SolutionsGps = () => {
                                         </div>
                                     </div>
 
+
+                                    {/* Products Grid (Reusing new card design from previous step) */}
+                                    <div className="mb-20">
+                                        <h3 className="text-2xl font-bold mb-10 text-center md:text-left">Produits Recommandés</h3>
+                                        <div className="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-16">
+                                            {activeSection.products.map((product, idx) => (
+                                                <div key={idx} className="flex flex-col group">
+                                                    {/* Floating Image - No container, no border, no background */}
+                                                    <div className="mb-6 relative flex items-center justify-center h-64 md:h-72">
+                                                        {typeof product.image === 'string' ? (
+                                                            <img
+                                                                src={product.image}
+                                                                alt={product.name}
+                                                                className="w-full h-full object-contain drop-shadow-2xl transition-transform duration-500 group-hover:scale-110 group-hover:-translate-y-4"
+                                                            />
+                                                        ) : (
+                                                            <product.image className={`w-32 h-32 ${activeSection.color} drop-shadow-xl transition-transform duration-500 group-hover:scale-110 group-hover:-translate-y-4`} />
+                                                        )}
+                                                    </div>
+
+                                                    {/* Content */}
+                                                    <div className="flex flex-col items-center md:items-start space-y-3 text-center md:text-left">
+
+                                                        <h4 className="text-2xl font-bold text-foreground">
+                                                            {product.name}
+                                                        </h4>
+
+                                                        <button
+                                                            onClick={() => navigate('/login')}
+                                                            className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-1"
+                                                        >
+                                                            Login to dashboard <ArrowRight className="w-3 h-3" />
+                                                        </button>
+
+                                                        <span className={`text-xs font-medium ${activeSection.color} opacity-80 uppercase tracking-widest`}>
+                                                            {activeSection.title}
+                                                        </span>
+
+                                                        <div className="pt-4 w-full">
+                                                            <Button
+                                                                variant="ghost"
+                                                                className="w-full md:w-auto px-6 border border-border hover:bg-accent hover:text-accent-foreground rounded-full"
+                                                                onClick={() => navigate('/contact')}
+                                                            >
+                                                                Lire la suite
+                                                            </Button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+
                                     {/* Features List */}
                                     <div className="mb-12">
                                         <h3 className="text-xl font-bold mb-6 flex items-center gap-2">
@@ -217,41 +277,6 @@ const SolutionsGps = () => {
                                         </div>
                                     </div>
 
-                                    {/* Products Grid (Reusing new card design from previous step) */}
-                                    <div className="mb-12">
-                                        <h3 className="text-xl font-bold mb-6">Produits Recommandés</h3>
-                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                            {activeSection.products.map((product, idx) => (
-                                                <div key={idx} className="bg-white rounded-xl shadow-sm border border-border/50 overflow-hidden hover:shadow-md transition-all group flex flex-col">
-                                                    <div className="aspect-[4/3] bg-muted/30 relative flex items-center justify-center p-6 border-b border-border/50">
-                                                        <div className={`absolute inset-0 bg-gradient-to-br ${activeSection.bg} opacity-50`} />
-
-                                                        {/* Render Logic: Support both Image URL strings and Icon Components */}
-                                                        {typeof product.image === 'string' ? (
-                                                            <img
-                                                                src={product.image}
-                                                                alt={product.name}
-                                                                className="w-full h-full object-contain relative z-10 transition-transform duration-300 group-hover:scale-105"
-                                                            />
-                                                        ) : (
-                                                            <product.image className={`w-16 h-16 ${activeSection.color} relative z-10`} />
-                                                        )}
-
-                                                        <div className="absolute top-3 right-3 z-20">
-                                                            <span className="bg-white/90 backdrop-blur-sm text-xs font-bold px-2 py-1 rounded shadow-sm text-foreground">PRO</span>
-                                                        </div>
-                                                    </div>
-                                                    <div className="p-5 flex flex-col flex-grow">
-                                                        <h4 className="font-bold text-lg text-foreground mb-2 line-clamp-2">{product.name}</h4>
-                                                        <button onClick={() => navigate('/login')} className="text-violet-600 font-medium text-sm mb-3 hover:underline text-left">Login to order</button>
-                                                        <div className="mt-auto">
-                                                            <Button variant="secondary" className="w-full justify-center bg-gray-100 hover:bg-gray-200 text-gray-900 font-medium rounded-lg" onClick={() => navigate('/contact')}>Lire la suite</Button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            ))}
-                                        </div>
-                                    </div>
 
                                     {/* Actions */}
                                     <div className="flex flex-col sm:flex-row gap-4 pt-8 border-t border-border">
