@@ -26,6 +26,7 @@ const SolutionsGps = () => {
         features: string[];
         color: string;
         bg: string;
+        solidBg?: string;
         borderColor?: string;
         heroImage?: string;
         benefits?: { icon: any; text: string }[];
@@ -47,6 +48,7 @@ const SolutionsGps = () => {
             ],
             color: "text-blue-500",
             bg: "bg-blue-500/10",
+            solidBg: "bg-blue-500",
             heroImage: gpsVehicleHero,
             borderColor: "border-blue-500/20",
             benefits: [
@@ -74,6 +76,7 @@ const SolutionsGps = () => {
             ],
             color: "text-emerald-500",
             bg: "bg-emerald-500/10",
+            solidBg: "bg-emerald-500",
             heroImage: gpsPersonHero,
             borderColor: "border-emerald-500/20",
             benefits: [
@@ -101,6 +104,7 @@ const SolutionsGps = () => {
             ],
             color: "text-orange-500",
             bg: "bg-orange-500/10",
+            solidBg: "bg-orange-500",
             heroImage: gpsAnimalHero,
             borderColor: "border-orange-500/20",
             benefits: [
@@ -197,13 +201,16 @@ const SolutionsGps = () => {
                                             {activeSection.description}
                                         </p>
 
-                                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                                             {activeSection.benefits && activeSection.benefits.map((benefit, idx) => (
-                                                <div key={idx} className="flex flex-col items-center text-center p-4 bg-muted/50 rounded-xl border border-border/50">
-                                                    <div className={`w-12 h-12 rounded-full ${activeSection.bg} flex items-center justify-center mb-3`}>
-                                                        <benefit.icon className={`w-6 h-6 ${activeSection.color}`} />
+                                                <div key={idx} className="group flex flex-col items-center text-center p-8 bg-card rounded-2xl border border-border/50 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                                                    <div className={`w-16 h-16 rounded-2xl ${activeSection.bg} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                                                        <benefit.icon className={`w-8 h-8 ${activeSection.color}`} />
                                                     </div>
-                                                    <span className="font-semibold text-foreground">{benefit.text}</span>
+                                                    <span className="text-lg font-bold text-foreground mb-2">{benefit.text}</span>
+                                                    <p className="text-sm text-muted-foreground">
+                                                        Optimisation continue pour votre activité
+                                                    </p>
                                                 </div>
                                             ))}
                                         </div>
@@ -282,7 +289,7 @@ const SolutionsGps = () => {
                                     <div className="flex flex-col sm:flex-row gap-4 pt-8 border-t border-border">
                                         <Button
                                             onClick={() => navigate('/contact')}
-                                            className={`flex-1 text-lg py-6 ${activeSection.bg.replace('/10', '')} hover:opacity-90 text-white`}
+                                            className={`flex-1 text-lg py-6 ${activeSection.solidBg} hover:opacity-90 text-white`}
                                         >
                                             Demander un devis
                                             <ArrowRight className="ml-2 w-5 h-5" />
