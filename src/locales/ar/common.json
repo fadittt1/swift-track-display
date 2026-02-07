@@ -115,10 +115,14 @@
         "loginToDashboard": "تسجيل الدخول إلى لوحة التحكم",
         "readMore": "اقرأ المزيد",
         "items": {
-            "catGps": "PET PRO GPS للقطط"
+            "catGps": "نظام تحديد المواقع للقطط PET PRO",
+            "vehicleGps": "جهاز تتبع المركبات OBD",
+            "personGps": "نظام تحديد المواقع الشخصي المصغر"
         },
         "categories": {
-            "gpsPerso": "GPS شخصي"
+            "gpsPerso": "نظام تحديد المواقع الشخصي",
+            "gpsVehicle": "نظام تحديد المواقع للمركبات",
+            "gpsAnimal": "نظام تحديد المواقع للحيوانات"
         }
     },
     "stats": {

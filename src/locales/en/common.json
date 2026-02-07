@@ -115,10 +115,14 @@
         "loginToDashboard": "Login to dashboard",
         "readMore": "Read more",
         "items": {
-            "catGps": "PET PRO Cat GPS"
+            "catGps": "PET PRO Cat GPS",
+            "vehicleGps": "OBD Vehicle GPS Tracker",
+            "personGps": "Mini Personal GPS"
         },
         "categories": {
-            "gpsPerso": "PERSONAL GPS"
+            "gpsPerso": "PERSONAL GPS",
+            "gpsVehicle": "VEHICLE GPS",
+            "gpsAnimal": "ANIMAL GPS"
         }
     },
     "stats": {

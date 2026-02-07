@@ -75,7 +75,7 @@ export const Footer = () => {
                 <a
                   key={index}
                   href="#"
-                  className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-accent transition-colors"
+                  className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-accent transition-all duration-300 hover:scale-110 hover:shadow-glow-cyan"
                 >
                   <Icon className="w-5 h-5" />
                 </a>

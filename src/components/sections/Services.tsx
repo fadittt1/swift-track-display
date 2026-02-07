@@ -70,16 +70,16 @@ export const Services = () => {
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="feature-card group cursor-pointer h-full flex flex-col"
+              className="feature-card group cursor-pointer h-full flex flex-col hover-glow hover:border-accent/20 transition-all duration-300"
               onClick={() => navigate(service.link)}
             >
               {/* Icon */}
-              <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
+              <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-all duration-300 shadow-lg group-hover:shadow-xl`}>
                 <service.icon className="w-8 h-8 text-white" />
               </div>
 
               {/* Content */}
-              <h3 className="text-2xl font-display font-bold text-foreground mb-4 group-hover:text-accent transition-colors">
+              <h3 className="text-2xl font-display font-bold text-foreground mb-4 group-hover:text-accent transition-colors duration-300">
                 {service.title}
               </h3>
               <p className="text-muted-foreground leading-relaxed mb-6 flex-grow">
@@ -87,9 +87,9 @@ export const Services = () => {
               </p>
 
               {/* Link */}
-              <div className="flex items-center text-accent font-medium text-sm group-hover:gap-2 transition-all mt-auto">
+              <div className="flex items-center text-accent font-semibold text-sm group-hover:gap-2 transition-all mt-auto">
                 En savoir plus
-                <ArrowRight className="w-4 h-4 ml-1 opacity-0 group-hover:opacity-100 transition-all" />
+                <ArrowRight className="w-4 h-4 ml-1 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
               </div>
             </motion.div>
           ))}
@@ -104,10 +104,10 @@ export const Services = () => {
         >
           <Button
             onClick={() => navigate('/contact')}
-            className="btn-accent text-lg px-8 py-6"
+            className="btn-accent text-lg px-8 py-6 hover-glow shadow-lg group"
           >
             Demander un devis gratuit
-            <ArrowRight className="ml-2 w-5 h-5 font-bold" />
+            <ArrowRight className="ml-2 w-5 h-5 font-bold transition-transform group-hover:translate-x-1" />
           </Button>
         </motion.div>
       </div>

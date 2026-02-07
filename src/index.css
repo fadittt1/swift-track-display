@@ -1,9 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap');
-
 /* GPS Tracking Company - Premium Design System */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+
 
 
 
@@ -284,5 +286,36 @@
     /* Parallax */
     .parallax {
         transform-style: preserve-3d;
+    }
+
+    /* Professional Shadow System */
+    .shadow-glow-blue {
+        box-shadow: 0 0 30px rgba(30, 127, 166, 0.3);
+    }
+
+    .shadow-glow-cyan {
+        box-shadow: 0 0 40px rgba(34, 211, 238, 0.4);
+    }
+
+    /* Smooth Transitions */
+    .transition-smooth {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .transition-bounce {
+        transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+
+    /* Professional Hover States */
+    .hover-scale {
+        transition: transform 0.3s ease;
+    }
+
+    .hover-scale:hover {
+        transform: scale(1.02);
+    }
+
+    .hover-glow:hover {
+        box-shadow: 0 8px 30px rgba(30, 127, 166, 0.25);
     }
 }

@@ -81,7 +81,7 @@ export const Hero = () => {
                         transition={{ duration: 0.6, delay: 0.2 }}
                         className="text-lg md:text-xl text-white/70 mb-10 max-w-2xl mx-auto leading-relaxed"
                     >
-                        Flow closly !
+                        Follow Closely!
                     </motion.p>
 
                     {/* CTA Buttons */}

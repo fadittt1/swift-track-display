@@ -94,10 +94,11 @@ export const Header = () => {
                                 <button
                                     key={item.name}
                                     onClick={(e) => { e.preventDefault(); handleNavigation(item.href, item.type); }}
-                                    className={`text-sm font-medium transition-colors hover:text-accent ${isScrolled ? 'text-foreground/80' : 'text-white/90'
+                                    className={`text-sm font-semibold transition-all duration-300 hover:text-accent relative group ${isScrolled ? 'text-foreground/80' : 'text-white/90'
                                         }`}
                                 >
                                     {item.name}
+                                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all duration-300 group-hover:w-full"></span>
                                 </button>
                             ))}
                         </nav>
@@ -119,14 +120,14 @@ export const Header = () => {
                                     <Button
                                         onClick={() => window.open('https://www.Protrack365.com', '_blank')}
                                         variant="ghost"
-                                        className={isScrolled ? 'text-foreground hover:bg-muted' : 'text-white hover:bg-white/10'}
+                                        className={`transition-all duration-300 ${isScrolled ? 'text-foreground hover:bg-muted' : 'text-white hover:bg-white/10 border border-white/20'}`}
                                     >
                                         <LogIn className="w-4 h-4 mr-2" />
                                         {t('nav.login')}
                                     </Button>
                                     <Button
                                         onClick={() => handleNavigation('/#contact', 'scroll')}
-                                        className="btn-accent"
+                                        className="btn-accent hover-glow shadow-lg"
                                     >
                                         Demander un devis
                                     </Button>

@@ -115,10 +115,14 @@
         "loginToDashboard": "Connexion au tableau de bord",
         "readMore": "Lire la suite",
         "items": {
-            "catGps": "GPS pour chat PET PRO"
+            "catGps": "GPS pour chat PET PRO",
+            "vehicleGps": "Traceur GPS Véhicule OBD",
+            "personGps": "GPS Personnel Mini"
         },
         "categories": {
-            "gpsPerso": "GPS PERSONNEL"
+            "gpsPerso": "GPS PERSONNEL",
+            "gpsVehicle": "GPS VÉHICULE",
+            "gpsAnimal": "GPS ANIMAL"
         }
     },
     "stats": {

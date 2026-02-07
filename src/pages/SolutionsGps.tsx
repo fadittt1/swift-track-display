@@ -215,35 +215,35 @@ const SolutionsGps = () => {
                                         <h3 className="text-2xl font-bold mb-10 text-center md:text-left">Produits Recommandés</h3>
                                         <div className="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-16">
                                             {activeSection.products.map((product, idx) => (
-                                                <div key={idx} className="flex flex-col group">
+                                                <div key={idx} className="flex flex-col group cursor-pointer">
                                                     {/* Floating Image - No container, no border, no background */}
-                                                    <div className="mb-6 relative flex items-center justify-center h-64 md:h-72">
+                                                    <div className="mb-6 relative flex items-center justify-center h-64 md:h-72 overflow-hidden rounded-2xl">
                                                         {typeof product.image === 'string' ? (
                                                             <img
                                                                 src={product.image}
                                                                 alt={product.name}
-                                                                className="w-full h-full object-contain drop-shadow-2xl transition-transform duration-500 group-hover:scale-110 group-hover:-translate-y-4"
+                                                                className="w-full h-full object-contain drop-shadow-2xl transition-all duration-500 group-hover:scale-105 group-hover:-translate-y-2"
                                                             />
                                                         ) : (
-                                                            <product.image className={`w-32 h-32 ${activeSection.color} drop-shadow-xl transition-transform duration-500 group-hover:scale-110 group-hover:-translate-y-4`} />
+                                                            <product.image className={`w-32 h-32 ${activeSection.color} drop-shadow-xl transition-all duration-500 group-hover:scale-105 group-hover:-translate-y-2`} />
                                                         )}
                                                     </div>
 
                                                     {/* Content */}
                                                     <div className="flex flex-col items-center md:items-start space-y-3 text-center md:text-left">
 
-                                                        <h4 className="text-2xl font-bold text-foreground">
+                                                        <h4 className="text-2xl font-bold text-foreground group-hover:text-accent transition-colors duration-300">
                                                             {product.name}
                                                         </h4>
 
                                                         <button
                                                             onClick={() => navigate('/login')}
-                                                            className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-1"
+                                                            className="text-sm text-muted-foreground hover:text-accent transition-all duration-300 flex items-center gap-1 group/btn"
                                                         >
-                                                            Login to dashboard <ArrowRight className="w-3 h-3" />
+                                                            Login to dashboard <ArrowRight className="w-3 h-3 transition-transform group-hover/btn:translate-x-1" />
                                                         </button>
 
-                                                        <span className={`text-xs font-medium ${activeSection.color} opacity-80 uppercase tracking-widest`}>
+                                                        <span className={`text-xs font-semibold ${activeSection.color} opacity-80 uppercase tracking-widest px-3 py-1 rounded-full bg-current/10`}>
                                                             {activeSection.title}
                                                         </span>
 

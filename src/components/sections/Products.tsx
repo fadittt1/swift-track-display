@@ -1,24 +1,28 @@
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 
+import gpsVehicle from '@/assets/gps-vehicle-box.png';
+import gpsPerson from '@/assets/gps-person-box.png';
+import gpsAnimal from '@/assets/gps-animal-box.png';
+
 const products = [
     {
         id: 1,
-        nameKey: 'catGps',
-        categoryKey: 'gpsPerso',
-        image: '/gps-pet-cat.png'
+        nameKey: 'vehicleGps',
+        categoryKey: 'gpsVehicle',
+        image: gpsVehicle
     },
     {
         id: 2,
-        nameKey: 'catGps',
+        nameKey: 'personGps',
         categoryKey: 'gpsPerso',
-        image: '/gps-pet-cat.png'
+        image: gpsPerson
     },
     {
         id: 3,
         nameKey: 'catGps',
-        categoryKey: 'gpsPerso',
-        image: '/gps-pet-cat.png'
+        categoryKey: 'gpsAnimal',
+        image: gpsAnimal
     }
 ];
 
@@ -89,7 +93,7 @@ export const Products = () => {
 
                                 <button
                                     onClick={scrollToContact}
-                                    className="mt-4 w-full py-2.5 px-4 text-sm font-medium text-gray-700 border border-gray-300 rounded-lg hover:bg-gray-50 hover:border-gray-400 transition-all duration-200"
+                                    className="mt-4 w-full py-2.5 px-4 text-sm font-semibold text-gray-700 border border-gray-300 rounded-lg hover:bg-gray-50 hover:border-accent hover:text-accent transition-all duration-300 hover:shadow-md"
                                 >
                                     {t('products.readMore')}
                                 </button>
