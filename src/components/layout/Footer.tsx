@@ -71,7 +71,7 @@ export const Footer = () => {
               {t('footer.brand.description')}
             </p>
             <div className="flex gap-4">
-              {[Facebook, Twitter, Linkedin, Instagram].map((Icon, index) => (
+              {[Facebook, Linkedin, Instagram].map((Icon, index) => (
                 <a
                   key={index}
                   href="#"
