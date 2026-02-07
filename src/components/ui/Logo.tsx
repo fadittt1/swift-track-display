@@ -3,7 +3,7 @@ import logoImage from '@/assets/logo.png';
 
 interface LogoProps {
     className?: string;
-    size?: 'sm' | 'md' | 'lg' | number;
+    size?: 'sm' | 'md' | 'lg' | 'xl' | number;
     withBackground?: boolean;
 }
 
@@ -15,7 +15,8 @@ export const Logo: React.FC<LogoProps> = ({
     const sizeMap = {
         sm: 32,
         md: 40,
-        lg: 48
+        lg: 48,
+        xl: 56
     };
 
     const pixelSize = typeof size === 'number' ? size : sizeMap[size];

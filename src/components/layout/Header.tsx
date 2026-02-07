@@ -81,7 +81,7 @@ export const Header = () => {
                             className="flex items-center gap-4 group"
                         >
                             <div className="flex items-center justify-center">
-                                <Logo size="md" />
+                                <Logo size={54} />
                             </div>
                             <span className={`font-display font-bold text-lg tracking-wide transition-colors whitespace-nowrap ${isScrolled ? 'text-foreground' : 'text-white'
                                 }`}>

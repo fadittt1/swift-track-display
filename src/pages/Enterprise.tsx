@@ -68,7 +68,7 @@ const Enterprise = () => {
                         animate={{ opacity: 1, y: 0 }}
                         className="text-4xl md:text-5xl font-display font-bold mb-6"
                     >
-                        Solutions <span className="text-gradient">Entreprises</span>
+                        Solutions <span className="text-gradient-accent">Entreprises</span>
                     </motion.h1>
                     <p className="text-xl text-white/70 max-w-2xl mx-auto">
                         Des outils puissants pour piloter votre activité et sécuriser vos actifs.

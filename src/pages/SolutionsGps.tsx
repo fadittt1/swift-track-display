@@ -135,7 +135,7 @@ const SolutionsGps = () => {
                         animate={{ opacity: 1, y: 0 }}
                         className="text-4xl md:text-5xl font-display font-bold mb-6"
                     >
-                        Solutions <span className="text-gradient">GPS</span>
+                        Solutions <span className="text-gradient-accent">GPS</span>
                     </motion.h1>
                     <p className="text-xl text-white/70 max-w-2xl mx-auto">
                         Choisissez la solution de tracking adaptée à vos besoins.

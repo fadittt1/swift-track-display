@@ -48,9 +48,9 @@ export const Products = () => {
                             {t('products.subtitle')}
                         </p>
                     </div>
-                    <button className="hidden md:block px-5 py-2.5 text-sm font-medium text-gray-700 hover:text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
+                    <a href="/solutions-gps" className="hidden md:block px-5 py-2.5 text-sm font-medium text-gray-700 hover:text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
                         {t('products.viewAll')}
-                    </button>
+                    </a>
                 </div>
 
                 {/* Borderless Products Grid */}

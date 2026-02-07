@@ -70,7 +70,7 @@ const SecurityDomotics = () => {
                         animate={{ opacity: 1, y: 0 }}
                         className="text-4xl md:text-5xl font-display font-bold mb-6"
                     >
-                        Sécurité & <span className="text-gradient">Domotique</span>
+                        Sécurité & <span className="text-gradient-accent">Domotique</span>
                     </motion.h1>
                     <p className="text-xl text-white/70 max-w-2xl mx-auto">
                         Protégez votre foyer et simplifiez votre quotidien avec nos solutions connectées.
