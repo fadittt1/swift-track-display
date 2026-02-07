@@ -1,5 +1,6 @@
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
+import { GoldOffer } from '@/components/sections/GoldOffer';
 import { motion } from 'framer-motion';
 import { Building2, Truck, Network, CheckCircle, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -75,6 +76,9 @@ const Enterprise = () => {
                     </p>
                 </div>
             </div>
+
+            {/* GOLD Offer Section */}
+            <GoldOffer />
 
             <main className="flex-grow container-custom py-16 space-y-24">
                 {sections.map((section, index) => (
