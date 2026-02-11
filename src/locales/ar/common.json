@@ -204,21 +204,13 @@
         },
         "info": {
             "address": "العنوان",
-            "addressContent": "B 74 عمارة مون بليزير الطابق 7\n1073 تونس، تونس",
+            "addressContent": "شارع 815 زاوية 90، مدينة الزهراء\nبن عروس، تونس",
             "phone": "الهاتف",
             "phoneContent": "28 899 594\nالوفاء في الخدمة",
             "email": "البريد الإلكتروني",
             "emailContent": "contact@viewtrack.tn\nsupport@viewtrack.tn",
             "hours": "ساعات العمل",
             "hoursContent": "الاثنين - الجمعة: 8:30 صباحاً - 5:30 مساءً\nالسبت: 9:00 صباحاً - 12:30 مساءً"
-        }
-    },
-    "footer": {
-        "newsletter": {
-            "title": "ابقَ على اطلاع",
-            "subtitle": "تابع بدقة!",
-            "placeholder": "بريدك الإلكتروني",
-            "submit": "اشترك"
         },
         "brand": {
             "description": "نقطة ارتكاز مركزية - مراقبة الأسطول والأمن. حلول تتبع GPS احترافية مع أكثر من 10 سنوات من الخبرة."

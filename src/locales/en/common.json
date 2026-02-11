@@ -203,21 +203,13 @@
         },
         "info": {
             "address": "Address",
-            "addressContent": "B 74 Imm Mont Plaisir Floor 7\n1073 Tunis, Tunisia",
+            "addressContent": "Rue 815 angle 90, cité Ezzahra\nBen Arous, Tunisia",
             "phone": "Phone",
             "phoneContent": "28 899 594\nLoyalty to service",
             "email": "Email",
             "emailContent": "contact@viewtrack.tn\nsupport@viewtrack.tn",
             "hours": "Hours",
             "hoursContent": "Mon - Fri: 8:30 AM - 5:30 PM\nSat: 9:00 AM - 12:30 PM"
-        }
-    },
-    "footer": {
-        "newsletter": {
-            "title": "Stay Informed",
-            "subtitle": "Flow closely!",
-            "placeholder": "Your email",
-            "submit": "Subscribe"
         },
         "brand": {
             "description": "Central Point Support - Fleet monitoring & Security. Professional GPS tracking solutions with over 10 years of expertise."
